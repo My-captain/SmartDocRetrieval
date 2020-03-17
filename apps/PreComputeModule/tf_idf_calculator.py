@@ -89,6 +89,14 @@ def cluster_vec(vec_list):
     return classes
 
 
+def cos_classify(vec, classes, vec_list):
+    ave_dist_list = []
+    for i in classes:
+        ave_dist = sum([cos_dist_vec_to_vec(vec, vec_list[j]) for j in classes[i]]) / len(i)
+        ave_dist_list.append(ave_dist)
+    return ave_dist_list.index(min(ave_dist_list))
+
+
 if __name__ == '__main__':
     doc_list = read_doc_list()
     voc_list = read_voc_list()
