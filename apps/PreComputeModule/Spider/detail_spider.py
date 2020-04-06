@@ -8,6 +8,11 @@
 import json
 import time
 from selenium import webdriver
+from random import uniform
+
+
+def alert():
+    print("\a")
 
 
 def get_empty_doc():
@@ -16,28 +21,53 @@ def get_empty_doc():
         "authors": None,
         "publication": None,
         "abstract": None,
-        "references": None
+        "references": None,
+        "doi_url": None
     }
 
 
-def save_detail(href_list):
-    with open(r"./doc_detail.json", "w", encoding="utf-8") as file:
+def save_detail(href_list, year):
+    with open(r"./detail/doc_detail_{0}.json".format(year), "w", encoding="utf-8") as file:
         file.write(json.dumps(href_list, ensure_ascii=False))
 
 
-driver = webdriver.Chrome('./chromedriver')
+prefers = {
+    'profile.default_content_setting_values': {
+        'images': 2,
+        'javascript': 2,
+    }
+}
+option = webdriver.ChromeOptions()
+option.add_experimental_option('prefs', prefers)
+driver = webdriver.Chrome(executable_path='./browser_driver/chromedriver.exe', options=option)
+# driver = webdriver.Firefox(executable_path='./geckodriver.exe')
+# driver = webdriver.Firefox()
 
-href_list = None
-with open(r"./detail_href_list_sorted_by_latest.json", "r", encoding="utf-8") as file:
-    file_content = file.read()
-    href_list = json.loads(file_content)
 
-detail_list = list()
+def get_links(year):
+    href_list = None
+    with open(r"./link_list/detail_links_{0}.json".format(year), "r", encoding="utf-8") as file:
+        file_content = file.read()
+        href_list = json.loads(file_content)
+    return href_list
 
-for url in href_list[1646:]:
-    while True:
+
+def crawl_detail(year):
+    link_list = get_links(year)
+    detail_list = list()
+    detail_idx = 0
+    for url in link_list:
         try:
+            detail_idx += 1
+            print("{0}年{1}条".format(year, detail_idx))
             driver.get(url)
+            # try:
+            #     show_more_items = driver.find_element_by_class_name("show-more-items__btn-holder")
+            #     button = show_more_items.find_element_by_class_name("btn--inverse")
+            #
+            #     button.click()
+            # except Exception as e:
+            #     print("点击按钮时出现异常,{0}".format(e))
             title = driver.find_element_by_class_name("citation__title").text
             authors = list()
             author_card = driver.find_element_by_id("sb-1")
@@ -48,17 +78,29 @@ for url in href_list[1646:]:
             references = list()
             refers = driver.find_elements_by_class_name("references__item")
             for refer in refers:
-                references.append(refer.text)
-            break
+                if len(refer.text) > 0:
+                    references.append(refer.text)
         except Exception as e:
             print("出现异常")
-            time.sleep(0.8)
-    doc = get_empty_doc()
-    doc["title"] = title
-    doc["authors"] = authors
-    doc["publication"] = publication
-    doc["abstract"] = abstract
-    doc["references"] = references
-    detail_list.append(doc)
-    save_detail(detail_list)
-    time.sleep(1)
+            alert()
+            continue
+        doc = get_empty_doc()
+        doc["title"] = title
+        doc["authors"] = authors
+        doc["publication"] = publication
+        doc["abstract"] = abstract
+        doc["references"] = references
+        doc["doi_url"] = url
+        detail_list.append(doc)
+        save_detail(detail_list, year)
+
+        sleep_duration = uniform(0.1, 1)
+        print("sleep for {0}s".format(sleep_duration))
+        time.sleep(sleep_duration)
+
+
+if __name__ == '__main__':
+    # year = 2017
+    # for i in range(2):
+    #     crawl_detail(year+i)
+    crawl_detail(2019)
