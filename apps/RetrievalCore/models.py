@@ -13,6 +13,7 @@ class Document(models.Model):
     references = models.TextField(verbose_name="引用列表")
     publication = models.TextField(verbose_name="文献发表信息")
     classification = models.IntegerField(verbose_name="所属类别", default=-1, null=True, blank=True)
+    feature_vector = models.TextField(verbose_name="特征向量", null=True, blank=True)
 
     class Meta:
         verbose_name = "文献"
@@ -36,6 +37,14 @@ class Document(models.Model):
         """
         author_list = json.loads(self.authors)
         return author_list
+
+    def get_feature_vector(self):
+        """
+        获取当前文献的特征向量
+        :return: List<float>
+        """
+        feature = json.loads(self.feature_vector)
+        return feature
 
 
 class Session(models.Model):
