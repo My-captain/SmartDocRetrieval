@@ -11,7 +11,7 @@
 <ul>
     {% for document in documents %}
     <li class="doc_list_card">
-        <h5 class="doc_title" onclick="">{{ document.title }}</h5>
+        <h5 class="doc_title" onclick="window.open('{% url 'RetrievalCore:document_detail' document_id=document.id %}', 'self')">{{ document.title }}</h5>
         <ul class="author_list">
             {% for author in document.get_authors %}
             <li class="author_item">{{ author }},</li>

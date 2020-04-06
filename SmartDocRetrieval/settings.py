@@ -131,14 +131,12 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-"""
 STATICFILES_DIRS = (
     # Linux以及Mac系统下、此处需要指定本地路径的具体位置,部署上线时需要注意
-    r'C:/Users/Mr.Robot/Desktop/workspace/SmartDocRetrieval/static/',
-    os.path.join(BASE_DIR, "/static/"),
-    os.path.join(BASE_DIR, "/static/css/"),
+    # r'C:/Users/Mr.Robot/Desktop/workspace/SmartDocRetrieval/static/',
+    os.path.join(BASE_DIR, "static"),
+    # os.path.join(BASE_DIR, "/static/css/"),
 )
-"""
 
 # 字典的IDF配置
 IDF = {

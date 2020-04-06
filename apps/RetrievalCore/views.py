@@ -14,5 +14,8 @@ class DocumentListView(View):
 
 
 class DocumentDetailView(View):
-    def get(self, request):
-        pass
+    def get(self, request, document_id):
+        document = Document.objects.filter(id=document_id)[0]
+        return render(request, "doc_detail.html", {
+            "document": document
+        })

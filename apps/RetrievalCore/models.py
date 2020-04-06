@@ -35,7 +35,7 @@ class Document(models.Model):
         获取当前文献的所有引用列表
         :return: List<reference>
         """
-        author_list = json.loads(self.authors)
+        author_list = json.loads(self.references)
         return author_list
 
     def get_feature_vector(self):

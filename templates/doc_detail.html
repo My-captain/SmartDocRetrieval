@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>doc-detail</title>
-    <link rel="stylesheet" href="../css/frame/bootstrap.css">
-    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/detail.css">
 </head>
 <body>
 
 <main class="main-content">
     <div class="border-bottom">
-        <h1 class="detail-title">Multi-class Document Classification Using Improved Word Embeddings</h1>
+        <h1 class="detail-title">{{ document.title }}</h1>
     </div>
     <div class="border-bottom">
         <ul class="detail-author-list">
-            <li class="detail-label">Authors</li>
-            <li class="detail-author-item">Benedict A. Rabut,</li>
-            <li class="detail-author-item">Arnel C. Fajardo,</li>
-            <li class="detail-author-item">Ruji P. Medina</li>
+            <li class="detail-label">Authors:</li>
+            {% for author in document.get_authors %}
+            <li class="detail-author-item">{{ author }},</li>
+            {% endfor %}
         </ul>
     </div>
     <div class="border-bottom">
-        <span class="detail-label">Publication</span>
+        <span class="detail-label">Publication:</span>
         <span class="detail-dot-separator">
-            <span class="detail-publication">ICTIR '19: Proceedings of the 2019 ACM SIGIR International Conference on Theory of Information Retrieval</span>
+            <span class="detail-publication">{{ document.publication }}</span>
         </span>
         <span class="detail-dot-separator">
-            <span class="detail-doc-url">https://doi.org/10.1145/3309543</span>
+            <span class="detail-doc-url">{{ document.doi_url }}</span>
         </span>
     </div>
 
@@ -37,7 +37,7 @@
             </h2>
         </div>
         <div class="abstract-section">
-            <p>Term discrimination value is among the three basic heuristics exploited, directly or indirectly, in almost all ranking models for ad-hoc Information Retrieval (IR). Query term discrimination in monolingual IR is usually estimated based on document or collection frequency of terms. In the query translation approach for CLIR, the discrimination value of a query term needs to be estimated based on document or collection frequencies of its translations, which is more challenging. We show that the existing estimation models do not correctly estimate and adequately reflect the difference between the discrimination power of query terms, which hurts retrieval performance. We then propose a new model to estimate discrimination values of query terms for CLIR and empirically demonstrate its impact in improving the CLIR performance.</p>
+            <p>{{ document.abstract }}</p>
         </div>
     </div>
     <div class="reference-container">
@@ -47,20 +47,16 @@
             </h2>
         </div>
         <ol class="reference-list">
+            {% for reference in document.get_references %}
             <li class="reference-item">
-                <span class="reference-note">Data integration course CSE636. Retrieved August 15, 2013 from http://www.cse.buffalo.edu/~mpetropo/CSE636-FA08/.</span>
+                <span class="reference-note">{{ reference }}</span>
             </li>
-            <li class="reference-item">
-                <span class="reference-note">Data integration course CS345. Retrieved August 15, 2013 from https://sites.google.com/a/alonhalevy.org/stanford-cs345c/slides.</span>
-            </li>
-            <li class="reference-item">
-                <span class="reference-note">Data integration systems. Retrieved August 15, 2013 from http://www.seas.upenn.edu/~zives/03s/cis650/data-integration-2.pdf.</span>
-            </li>
+            {% endfor %}
         </ol>
     </div>
 </main>
 
-<script type="text/javascript" src="../js/frame/jquery.min.js"></script>
-<script type="text/javascript" src="../js/frame/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
 </body>
 </html>
