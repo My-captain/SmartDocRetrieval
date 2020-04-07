@@ -15,7 +15,7 @@ doc_items = None
 with open(r"./all_detail.json", "r", encoding="utf-8") as all_detail:
     doc_items = json.loads(all_detail.read())
 
-sql = "insert RetrievalCore_document values({0}, '{1}', {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8})"
+sql = "insert RetrievalCore_document values({0}, '{1}', {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8}, null)"
 doc_id = 1
 for doc in doc_items:
     insert_sql = sql.format(doc_id, pymysql.escape_string(doc["title"]), doc["year"],

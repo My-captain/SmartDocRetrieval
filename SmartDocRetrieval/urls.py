@@ -18,5 +18,6 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('doc_browse/', include('RetrievalCore.urls', namespace='RetrievalCore'))
+    re_path(r'doc_browse/', include('RetrievalCore.urls', namespace='RetrievalCore')),
+    re_path(r'user/', include('RetrievalCore.urls', namespace='User'))
 ]
