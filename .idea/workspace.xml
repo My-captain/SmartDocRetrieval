@@ -99,7 +99,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586167268459</updated>
-      <workItem from="1586167272158" duration="8934000" />
+      <workItem from="1586167272158" duration="14732000" />
+      <workItem from="1586263519369" duration="700000" />
     </task>
     <servers />
   </component>
@@ -115,48 +116,59 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="335" y="283" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586174461105" />
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom" timestamp="1586176856744">
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856744" />
-    <state width="1877" height="300" key="GridCell.Tab.0.center" timestamp="1586176856744">
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.0.center" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856744" />
-    <state width="1877" height="300" key="GridCell.Tab.0.left" timestamp="1586176856744">
+    <state width="1877" height="85" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.0.left" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856744" />
-    <state width="1877" height="300" key="GridCell.Tab.0.right" timestamp="1586176856744">
+    <state width="1877" height="85" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.0.right" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856744" />
-    <state width="1877" height="300" key="GridCell.Tab.1.bottom" timestamp="1586176856672">
+    <state width="1877" height="85" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.1.bottom" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856672" />
-    <state width="1877" height="300" key="GridCell.Tab.1.center" timestamp="1586176856672">
+    <state width="1877" height="85" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.1.center" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856672" />
-    <state width="1877" height="300" key="GridCell.Tab.1.left" timestamp="1586176856672">
+    <state width="1877" height="85" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.1.left" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856672" />
-    <state width="1877" height="300" key="GridCell.Tab.1.right" timestamp="1586176856672">
+    <state width="1877" height="85" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
+    <state width="1877" height="85" key="GridCell.Tab.1.right" timestamp="1586263745272">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="300" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586176856672" />
+    <state width="1877" height="85" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586263745272" />
     <state width="1823" height="588" key="XDebugger.FullValuePopup" timestamp="1586171794592">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1823" height="588" key="XDebugger.FullValuePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1586171794592" />
-    <state x="636" y="258" width="647" height="534" key="find.popup" timestamp="1586176963862">
+    <state x="636" y="258" width="647" height="534" key="find.popup" timestamp="1586184902543">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="636" y="258" width="647" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586176963862" />
+    <state x="636" y="258" width="647" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586184902543" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/PreComputeModule/Spider/database_importer.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SmartDocRetrieval$database_importer.coverage" NAME="database_importer Coverage Results" MODIFIED="1586171960854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/PreComputeModule/Spider" />
+    <SUITE FILE_PATH="coverage/SmartDocRetrieval$database_importer.coverage" NAME="database_importer Coverage Results" MODIFIED="1586263678623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/PreComputeModule/Spider" />
   </component>
 </project>

@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# 重写django default user model
+AUTH_USER_MODEL = 'RetrievalCore.UserProfile'
+
 
 # Application definition
 
@@ -87,8 +90,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DocRetrieval',
         'USER': 'root',
-        'PASSWORD': 'echo',
-        'HOST': '127.0.0.1'
+        'PASSWORD': 'Doc123456',
+        'HOST': 'rm-bp1uk5g6qxw3mqpeevo.mysql.rds.aliyuncs.com'
     }
 }
 

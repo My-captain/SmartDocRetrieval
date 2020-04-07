@@ -8,7 +8,7 @@
 import pymysql
 import json
 
-connector = pymysql.connect("localhost", "root", "echo", "DocRetrieval")
+connector = pymysql.connect("rm-bp1uk5g6qxw3mqpeevo.mysql.rds.aliyuncs.com", "root", "Doc123456", "DocRetrieval")
 cursor = connector.cursor()
 
 doc_items = None

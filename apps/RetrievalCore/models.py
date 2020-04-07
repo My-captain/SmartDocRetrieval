@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 import json
 
 # Create your models here.
@@ -47,7 +48,22 @@ class Document(models.Model):
         return feature
 
 
+class UserProfile(AbstractUser):
+    # 继承AbstractUser类
+    username = models.CharField(max_length=50, unique=True, verbose_name=u"昵称", default="")
+
+    class Meta:
+        verbose_name = "用户信息"
+        verbose_name_plural = verbose_name
+        db_table = "user_profile"
+
+    def __str__(self):
+        return self.username
+
+
 class Session(models.Model):
+    user = models.ForeignKey(UserProfile, verbose_name="会话用户", null=False, blank=False, on_delete=models.CASCADE)
+    documents = models.ManyToManyField(Document, verbose_name="会话文档")
     D_vector = models.TextField(verbose_name="D向量")
     P_vector = models.TextField(verbose_name="P向量")
     precision = models.FloatField(verbose_name="此此session的准确率")
