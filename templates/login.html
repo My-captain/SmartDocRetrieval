@@ -43,13 +43,11 @@ $("#form1").on("click", ".btn", function (e) {
         },
         dataType: "json",
         success: function (result) {
-            if ("true" === result.flag) {
-                window.location.href = "http://www.baidu.com";
-            } else {
-                alert("用户名或者密码错误");
-            }
+            /**
+             * 未实现
+             */
         }
-    })
+    });
 })
 </script>
 </body>

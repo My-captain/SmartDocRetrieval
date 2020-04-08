@@ -1,16 +1,19 @@
 import json
 import math
+import random
+import pymysql
 
-REP_DOC_NUM = 6000
+REP_DOC_NUM = 2000
 VOC_FILE_PATH = r'static/vocabulary'
 DOC_FILE_PATH = r'Spider/all_detail.json'
 CLUSTER_FILE_PATH = r'static/cluster'
-CLASS_NUM = 8
+CLASS_NUM = 5
 
 def read_doc_list():
     rep_doc_list = []
     with open(DOC_FILE_PATH, "r", encoding="utf-8") as file:
         doc_list = json.loads(file.read())
+        random.shuffle(doc_list)
         for doc in doc_list[:REP_DOC_NUM]:
             rep_doc_list.append((doc['title'] + '. ' + doc['abstract']).lower())
     return rep_doc_list
@@ -52,7 +55,10 @@ def eu_dist_vec_to_vec(v1, v2):
 def cos_dist_vec_to_vec(v1, v2):
     norm_v1 = math.sqrt(sum([(v1[i])**2 for i in range(len(v1))]))
     norm_v2 = math.sqrt(sum([(v2[i])**2 for i in range(len(v1))]))
-    return 1 - (math.sqrt(sum([v1[i] * v2[i] for i in range(len(v1))])) / (norm_v1 * norm_v2))
+    if norm_v1 * norm_v2 > 0:
+        return 1 - sum([v1[i] * v2[i] for i in range(len(v1))]) / (norm_v1 * norm_v2)
+    else:
+        return 1
 
 
 def dist_vec_to_set(v, s, dist_mat):
@@ -92,7 +98,7 @@ def cluster_vec(vec_list):
 def cos_classify(vec, classes, vec_list):
     ave_dist_list = []
     for i in classes:
-        ave_dist = sum([cos_dist_vec_to_vec(vec, vec_list[j]) for j in classes[i]]) / len(i)
+        ave_dist = sum([cos_dist_vec_to_vec(vec, vec_list[j]) for j in i]) / len(i)
         ave_dist_list.append(ave_dist)
     return ave_dist_list.index(min(ave_dist_list))
 
@@ -103,7 +109,43 @@ if __name__ == '__main__':
     idf_list = calc_idf_list(doc_list, voc_list)
     vec_list = calc_vec_list(doc_list, voc_list, idf_list)
     classes = cluster_vec(vec_list)
-    with open(CLUSTER_FILE_PATH, 'w', encoding='utf-8') as file:
-        for i in classes:
-            file.write(str(len(i)) + '\t' + str(i) + '\n')
+    class_names = []
+    for i in classes:
+        class_vec = [0 for j in range(len(voc_list))]
+        for j in i:
+            for k, v in enumerate(vec_list[j]):
+                class_vec[k] += v
+        class_name = voc_list[class_vec.index(max(class_vec))]
+        class_vec[class_vec.index(max(class_vec))] = 0
+        class_name += (' and ' + voc_list[class_vec.index(max(class_vec))])
+        class_names.append(class_name)
+    for class_name in class_names:
+        print(class_name)
 
+    connector = pymysql.connect("rm-bp1uk5g6qxw3mqpeevo.mysql.rds.aliyuncs.com", "root", "Doc123456",
+                                "DocRetrieval")
+    cursor = connector.cursor()
+    sql = 'select id, title, abstract from retrievalcore_document'
+    cursor.execute(sql)
+    docs = cursor.fetchall()
+    for i in docs:
+        vec = []
+        doc = (i[1] + '. ' + i[2]).lower()
+        for k, v in enumerate(voc_list):
+            vec.append(doc.count(v) * idf_list[k])
+        vec_class = cos_classify(vec, classes, vec_list)
+        sql = 'update retrievalcore_document set classification=%d where id=%s'% (vec_class, i[0])
+        cursor.execute(sql)
+    connector.commit()
+    cursor.close()
+    connector.close()
+    # with open(CLUSTER_FILE_PATH, 'w', encoding='utf-8') as file:
+    #     for i in classes:
+    #         file.write(str(len(i)) + '\t' + str(i) + '\n')
+
+    # class_names:
+    # recommender systems and personalization
+    # summarization and combination
+    # enterprise search and document structure
+    # sentiment analysis and combination
+    # question answering and document structure

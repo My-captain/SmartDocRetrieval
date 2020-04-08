@@ -15,7 +15,7 @@ def get_vector_space_by_doc(doc, vocabulary):
     """
     vec = [0 for i in range(len(vocabulary))]
     for voc, val in vocabulary:
-        vec[val['id']] = (doc['title'] + doc['abstract']).lower().count(voc) * val['idf']
+        vec[val['id']] = (doc['title'] + '. ' + doc['abstract']).lower().count(voc) * val['idf']
     return vec
 
 
