@@ -1,9 +1,9 @@
 import json
 import math
 
-REP_DOC_NUM = 1000
+REP_DOC_NUM = 6000
 VOC_FILE_PATH = r'static/vocabulary'
-DOC_FILE_PATH = r'Spider/doc_detail1.json'
+DOC_FILE_PATH = r'Spider/all_detail.json'
 CLUSTER_FILE_PATH = r'static/cluster'
 CLASS_NUM = 8
 
@@ -103,9 +103,7 @@ if __name__ == '__main__':
     idf_list = calc_idf_list(doc_list, voc_list)
     vec_list = calc_vec_list(doc_list, voc_list, idf_list)
     classes = cluster_vec(vec_list)
-    for i in classes[1]:
-        print(vec_list[i])
-    # with open(CLUSTER_FILE_PATH, 'w', encoding='utf-8') as file:
-    #     for i in classes:
-    #         file.write(str(len(i)) + '\t' + str(i) + '\n')
+    with open(CLUSTER_FILE_PATH, 'w', encoding='utf-8') as file:
+        for i in classes:
+            file.write(str(len(i)) + '\t' + str(i) + '\n')
 
