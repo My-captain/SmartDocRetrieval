@@ -6,6 +6,7 @@
 # @Software: PyCharm
 import random
 
+
 def get_vector_space_by_doc(doc, vocabulary):
     """
     计算文档实体的向量空间
@@ -50,7 +51,6 @@ def update_p_value(origin_p_vector, current_vector, eta):
     r = 1 - eta
     max_d_idx = current_vector.index(max(current_vector))
     return [origin_p_vector[i] * r if i != max_d_idx else origin_p_vector[i] * r + eta for i in range(len(origin_p_vector))]
-
 
 
 def sort_docs_by_dp(doc_list, d_vector, p_vector):

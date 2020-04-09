@@ -38,14 +38,16 @@ $("#form1").on("click", ".btn", function (e) {
         type: "post",
         data: {
             'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
-            "userName": $("#userName").val(),
+            "username": $("#userName").val(),
             "password": $("#password").val()
         },
         dataType: "json",
         success: function (result) {
-            /**
-             * 未实现
-             */
+            if (result["success"]){
+                window.location = `/doc_browse/list/${result["user_id"]}`;
+            } else {
+                alert(result["msg"]);
+            }
         }
     });
 })

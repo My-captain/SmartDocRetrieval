@@ -9,8 +9,8 @@ from django.urls import path, re_path
 from RetrievalCore import views
 
 urlpatterns = [
-    re_path('^$', views.DocumentListView.as_view(), name="document_list"),
-    re_path(r'^detail/(?P<document_id>\d+)/(>P<session_id>\d+)$', views.DocumentDetailView.as_view(), name="document_detail"),
+    re_path(r'^list/', views.DocumentListView.as_view(), name="document_list"),
+    re_path(r'^detail/(?P<document_id>\d+)/(?P<session_id>\d+)/$', views.DocumentDetailView.as_view(), name="document_detail"),
     path('login/', views.UserLogin.as_view(), name="user_login"),
     path('register/', views.UserRegister.as_view(), name="user_register"),
 ]

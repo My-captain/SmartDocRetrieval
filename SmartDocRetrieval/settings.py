@@ -91,7 +91,10 @@ DATABASES = {
         'NAME': 'DocRetrieval',
         'USER': 'root',
         'PASSWORD': 'Doc123456',
-        'HOST': 'rm-bp1uk5g6qxw3mqpeevo.mysql.rds.aliyuncs.com'
+        'HOST': 'rm-bp1uk5g6qxw3mqpeevo.mysql.rds.aliyuncs.com',
+        'OPTIONS': {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 
