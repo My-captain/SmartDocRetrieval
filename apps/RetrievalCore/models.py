@@ -64,9 +64,9 @@ class UserProfile(AbstractUser):
 class Session(models.Model):
     user = models.ForeignKey(UserProfile, verbose_name="会话用户", null=False, blank=False, on_delete=models.CASCADE)
     documents = models.ManyToManyField(Document, verbose_name="会话文档")
-    D_vector = models.TextField(verbose_name="D向量")
-    P_vector = models.TextField(verbose_name="P向量")
-    precision = models.FloatField(verbose_name="此此session的准确率")
+    D_vector = models.TextField(verbose_name="D向量", null=True, blank=True)
+    P_vector = models.TextField(verbose_name="P向量", null=True, blank=True)
+    precision = models.FloatField(verbose_name="此此session的准确率", null=True, blank=True)
 
     class Meta:
         verbose_name = "会话"

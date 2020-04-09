@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,150 +19,25 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <folding>
-                <element signature="e#131#168#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-451">
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-641">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="17" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/PreComputeModule/Spider/database_importer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="30" />
-              <folding>
-                <element signature="e#144#158#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="145" column="18" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py" />
-        <option value="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
-  </component>
+  <component name="ProjectId" id="1aJ4wqcnxtDudc8hhimNGZW8006" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="PreComputeModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="PreComputeModule" type="462c0819:PsiDirectoryNode" />
-              <item name="Spider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="RetrievalCore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDocRetrieval" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDocRetrieval" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SmartDocRetrieval/templates/register.html" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../SmartDocRetrieval/templates/register.html" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.tf_idf_calculator">
+  <component name="RunManager" selected="Django server.SmartDocRetrieval">
     <configuration name="tf_idf_calculator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SmartDocRetrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -186,7 +60,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="Python.DjangoServer" factoryName="Django server">
+    <configuration name="SmartDocRetrieval" type="Python.DjangoServer" factoryName="Django server">
       <module name="SmartDocRetrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -200,8 +74,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="127.0.0.1" />
+      <option name="port" value="60000" />
+      <option name="host" value="0.0.0.0" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -211,7 +85,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django server.test" />
+      <item itemvalue="Django server.SmartDocRetrieval" />
       <item itemvalue="Python.tf_idf_calculator" />
     </list>
     <recent_temporary>
@@ -231,37 +105,9 @@
       <option name="presentableId" value="Default" />
       <updated>1586349938300</updated>
       <workItem from="1586349942645" duration="7536000" />
+      <workItem from="1586440605785" duration="2998000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7536000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.3295082" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -272,86 +118,92 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SmartDocRetrieval/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <folding>
-            <element signature="e#131#168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-451">
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/PreComputeModule/Spider/database_importer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="30" />
-          <folding>
-            <element signature="e#144#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-641">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="17" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="145" column="18" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441603563">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586441603562" />
+    <state x="671" y="431" width="1182" height="596" key="#xdebugger.evaluate" timestamp="1586443419390">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="671" y="431" width="1182" height="596" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1586443419390" />
+    <state x="365" y="107" key="CommitChangelistDialog2" timestamp="1586443690575">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="365" y="107" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586443690575" />
+    <state width="718" height="466" key="DebuggerActiveHint" timestamp="1586442536940">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="718" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1586442536940" />
+    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog" timestamp="1586441861134">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586441861134" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586441831047">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586441831047" />
+    <state width="1877" height="385" key="GridCell.Tab.0.bottom" timestamp="1586443308941">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
+    <state width="1877" height="385" key="GridCell.Tab.0.center" timestamp="1586443308941">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
+    <state width="1877" height="385" key="GridCell.Tab.0.left" timestamp="1586443308941">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
+    <state width="1877" height="385" key="GridCell.Tab.0.right" timestamp="1586443308941">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
+    <state width="1877" height="385" key="GridCell.Tab.1.bottom" timestamp="1586443317458">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
+    <state width="1877" height="385" key="GridCell.Tab.1.center" timestamp="1586443317458">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
+    <state width="1877" height="385" key="GridCell.Tab.1.left" timestamp="1586443317458">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
+    <state width="1877" height="385" key="GridCell.Tab.1.right" timestamp="1586443317458">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="385" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1586440624543">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586440624543" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1586443618398">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1586443618398" />
+    <state width="1823" height="577" key="XDebugger.FullValuePopup" timestamp="1586442604057">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1823" height="577" key="XDebugger.FullValuePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1586442604057" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
