@@ -56,7 +56,30 @@
     </div>
 </main>
 
-<script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
+<h1>反馈相关性:(0-1)</h1>
+<input id="user_relevance" type="text">
+{% csrf_token %}
+<button type="button" onclick="submit_relevance()">反馈</button>
+
+<script type="text/javascript" src="../static/js/frame/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
+<script type="text/javascript">
+    function submit_relevance() {
+        $.ajax({
+            url: "/doc_browse/detail/document_id/session_id/",
+            type: "post",
+            data: {
+                "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
+                "user_relevance": parseFloat($("#user_relevance").val()),
+            },
+            dataType: "json",
+            success: function (result) {
+                /**
+                 * 未实现
+                 */
+            }
+        });
+    }
+</script>
 </body>
 </html>
