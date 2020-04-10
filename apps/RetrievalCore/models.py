@@ -51,6 +51,8 @@ class Document(models.Model):
 class UserProfile(AbstractUser):
     # 继承AbstractUser类
     username = models.CharField(max_length=50, unique=True, verbose_name=u"昵称", default="")
+    D_vector = models.TextField(verbose_name="D向量", null=True, blank=True)
+    P_vector = models.TextField(verbose_name="P向量", null=True, blank=True)
 
     class Meta:
         verbose_name = "用户信息"
