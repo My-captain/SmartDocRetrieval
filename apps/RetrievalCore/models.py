@@ -59,6 +59,22 @@ class UserProfile(AbstractUser):
         verbose_name_plural = verbose_name
         db_table = "user_profile"
 
+    def get_D_vector(self):
+        """
+        获取当前会话的D向量
+        :return: List<D_i>
+        """
+        D = json.loads(self.D_vector)
+        return D
+
+    def get_P_vector(self):
+        """
+        获取当前会话的P向量
+        :return: List<P_i>
+        """
+        P = json.loads(self.P_vector)
+        return P
+
     def __str__(self):
         return self.username
 
@@ -82,7 +98,7 @@ class Session(models.Model):
         D = json.loads(self.D_vector)
         return D
 
-    def get_references(self):
+    def get_P_vector(self):
         """
         获取当前会话的P向量
         :return: List<P_i>

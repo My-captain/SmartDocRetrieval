@@ -67,8 +67,8 @@ def sort_docs_by_dp(doc_list, d_vector, p_vector):
         rand -= p_vector[top_class_idx]
         top_class_idx += 1
     top_class_idx -= 1
-    top_doc_list = [i for i in doc_list if i['Classification'] == top_class_idx]
-    sort_doc_list = [i for i in doc_list if i['Classification'] != top_class_idx]
-    return top_doc_list + sorted(sort_doc_list, key=lambda x: d_vector[x['Classification']], reverse=True)
+    top_doc_list = [i for i in doc_list if i.classification == top_class_idx]
+    sort_doc_list = [i for i in doc_list if i.classification != top_class_idx]
+    return top_doc_list + sorted(sort_doc_list, key=lambda x: d_vector[x.classification], reverse=True)
 
 

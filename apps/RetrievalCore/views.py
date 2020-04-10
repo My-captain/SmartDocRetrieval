@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 
 import json
-
+import apps.RetrievalCore.CommonTools as tool
 from RetrievalCore.models import Document, Session, UserProfile
 
 
@@ -39,7 +39,7 @@ class DocumentListView(View):
             # 有未完成的session
             user_session = user_sessions[0]
             documents = user_session.documents.all()
-            # 未实现，需要对documents排序
+            documents = tool.sort_docs_by_dp(documents, user.get_D_vector(), user.get_P_vector())
             return render(request, "list.html", {
                 "documents": documents,
                 "session": user_session
@@ -55,7 +55,7 @@ class DocumentListView(View):
             new_session = Session.objects.create(user=user, D_vector=None, P_vector=None, precision=None)
             new_session.documents.set(list(new_documents))
             new_session.save()
-            # 未实现，需要对new_documents排序
+            new_documents = tool.sort_docs_by_dp(new_documents, user.get_D_vector(), user.get_P_vector())
             return render(request, "list.html", {
                 "documents": new_documents,
                 "session": new_session
@@ -93,7 +93,40 @@ class DocumentListView(View):
         # 计算并更新D、P
         # user_relevance结构如以上注释, key为document id，classification为文献类别、relevance为用户分值
         # 计算并更新完成后
-        pass
+        user_id = request.path.split("list")[1].replace("/", "")
+        if len(user_id) < 1:
+            return render(request, "login.html")
+        user_id = int(user_id)
+        user = UserProfile.objects.filter(id=user_id)
+        if len(user) < 1:
+            # 用户未登录
+            return render(request, "login.html")
+        user = user[0]
+        user_sessions = Session.objects.filter(user=user, D_vector=None, P_vector=None)
+        if len(user_sessions) > 0:
+            user_session = user_sessions[0]
+            d = user.get_D_vector()
+            user_d = [0 for i in range(len(d))]
+            num_d = [0 for i in range(len(d))]
+            for k, v in user_relevance:
+                user_d[v['classification']] += v['relevance']
+                num_d[v['classification']] += 1
+            for k, v in enumerate(user_d):
+                if v > 0:
+                    v /= num_d[k]
+            new_d = tool.update_d_value(d, user_d, 300)
+            new_p = tool.update_p_value(user.get_P_vector(), new_d, 0.5)
+            user_session.D_vector = new_d
+            user_session.P_vector = new_p
+            user.D_vector = new_d
+            user.P_vector = new_p
+            user_session.save()
+            user.save()
+            # 返回准确率评估页面，其中documents和session应从request或session中获取
+            # return render(request, "list.html", {
+            #     "documents": documents,
+            #     "session": session
+            # })
 
 
 class DocumentDetailView(View):
