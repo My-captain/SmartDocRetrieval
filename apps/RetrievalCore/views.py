@@ -292,6 +292,7 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
+        print(user_preference)
         if user_preference is not None and sum(user_preference) > 0:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))

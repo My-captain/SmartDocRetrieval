@@ -46,7 +46,7 @@
             },
             async: false,
             success: function (result) {
-                window.location
+                window.location = '{% url 'User:preference_assess' %}{{ session.id }}/';
             }
         });
     }
