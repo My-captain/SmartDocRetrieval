@@ -41,7 +41,8 @@
             data: {
                 'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
                 "session_relevance": JSON.stringify(user_relevance),
-                "session_id": parseInt(session_id)
+                "session_id": parseInt(session_id),
+                "user_id": "{{ user_id }}"
             },
             async: false,
         });
