@@ -292,11 +292,11 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        if user_preference is not None:
+        if user_preference is not None and sum(user_preference) > 0:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
             user.save()
-        return JsonResponse({"success": True}, json_dumps_params={"ensure_ascii": False})
+        return JsonResponse({"success": True, "user_id": user_id}, json_dumps_params={"ensure_ascii": False})
 
 
 class PreferenceAssess(View):
