@@ -89,17 +89,12 @@ class DocumentListView(View):
         :return:
         """
         user_relevance = json.loads(request.POST.get("session_relevance"))
-        # 未实现，需beornut实现
-        # 计算并更新D、P
-        # user_relevance结构如以上注释, key为document id，classification为文献类别、relevance为用户分值
-        # 计算并更新完成后
         user_id = request.path.split("list")[1].replace("/", "")
         if len(user_id) < 1:
             return render(request, "login.html")
         user_id = int(user_id)
         user = UserProfile.objects.filter(id=user_id)
         if len(user) < 1:
-            # 用户未登录
             return render(request, "login.html")
         user = user[0]
         user_sessions = Session.objects.filter(user=user, D_vector=None, P_vector=None)
@@ -114,15 +109,14 @@ class DocumentListView(View):
             for k, v in enumerate(user_d):
                 if v > 0:
                     v /= num_d[k]
-            new_d = tool.update_d_value(d, user_d, 300)
-            new_p = tool.update_p_value(user.get_P_vector(), new_d, 0.5)
+            new_d = json.dumps(tool.update_d_value(d, user_d, 300))
+            new_p = json.dumps(tool.update_p_value(user.get_P_vector(), new_d, 0.5))
             user_session.D_vector = new_d
             user_session.P_vector = new_p
             user.D_vector = new_d
             user.P_vector = new_p
             user_session.save()
             user.save()
-            # 返回准确率评估页面，其中documents和session应从request或session中获取
             session_documents = Document.objects.filter(session__documents__session__in=[user_session])
             return render(request, "preference_assess.html", {
                 "documents": session_documents,
@@ -206,10 +200,10 @@ class UserLogin(View):
         else:
             user = user[0]
         if user.password == password:
-            # 登录成功，未实现
             json_response["success"] = True
             json_response["user_id"] = user.id
-            if user.D_vector is None or user.P_vector is None:
+            print(sum(user.get_D_vector()))
+            if sum(user.get_D_vector()) == 0:
                 json_response["redirect"] = "/user/preference_customize/{0}/".format(user.id)
         else:
             json_response["msg"] = "密码错误"
@@ -226,7 +220,6 @@ class UserRegister(View):
         :param request:
         :return:
         """
-        # 未实现
         return render(request, "register.html")
 
     def post(self, request):
@@ -254,6 +247,9 @@ class UserRegister(View):
         new_user = UserProfile()
         new_user.username = username
         new_user.password = password
+        init_d, init_p = tool.initial_d_p_vector(5)
+        new_user.D_vector = json.dumps(init_d)
+        new_user.P_vector = json.dumps(init_p)
         new_user.save()
         json_response["success"] = True
         # json_response["redirect"] = "/user/login/"
@@ -268,24 +264,23 @@ class UserPreference(View):
         user_id = int(user_id)
         user = UserProfile.objects.filter(id=user_id)
         if len(user) < 1:
-            # 用户未登录
             return render(request, "login.html")
         user = user[0]
-        # 未实现,此处需要返回类别，结构为
-        """
-        [{
-            "category_name": 类别名,
-            "category_code": 类别代码,
-        }, ...
-        ]
-        类别代码此处即为0 1 2 3...
-        """
         classification = [{
-            "category_name": "情报学",
+            "category_name": "recommender systems and personalization",
             "category_code": 0,
         }, {
-            "category_name": "ML",
+            "category_name": "summarization and combination",
             "category_code": 1,
+        }, {
+            "category_name": "enterprise search and document structure",
+            "category_code": 2,
+        }, {
+            "category_name": "sentiment analysis and combination",
+            "category_code": 3,
+        }, {
+            "category_name": "question answering and document structure",
+            "category_code": 4,
         }]
         return render(request, "preference_customize.html", {
             "user": user,
@@ -295,9 +290,19 @@ class UserPreference(View):
     def post(self, request):
         user_preference = request.POST.get("user_preference")
         user_preference = json.loads(user_preference)
-        if user_preference is None:
-            # 未实现,用户在初始化兴趣值页面点击了跳过按钮，此处初始化用户D、P
-            pass
-        else:
-            # 未实现,初始化用户D、P值，user_preference结构为list<float>  例:[0.54, 0.12, ...]
-            pass
+        user_id = request.path.split("preference_customize")[1].replace("/", "")
+        print(request.path.split("preference_customize"))
+        if len(user_id) < 1:
+            return render(request, "login.html")
+        user_id = int(user_id)
+        user = UserProfile.objects.filter(id=user_id)
+        print(user)
+        if len(user) < 1:
+            return render(request, "login.html")
+        user = user[0]
+        print(user_preference)
+        if user_preference is not None:
+            user.D_vector = json.dumps(user_preference)
+            user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
+            user.save()
+        return JsonResponse({"success": True}, json_dumps_params={"ensure_ascii": False})
