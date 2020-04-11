@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <title>自定义偏好</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/frame/bootstrap-slider.css">
     <link rel="stylesheet" href="/static/css/list.css">
     <link rel="stylesheet" href="/static/css/preference_customize.css">
 </head>
 <body>
 
-{% for category in classification %}
-    <ul class="category-list">
-        <li class="category-item">
-            <label for="category-{{ category.category_code }}">{{ category.category_name }}</label>
-            <input id="category-{{ category.category_code }}" class="classification" type="text">
+<ul class="category-list">
+    {% for category in classification %}
+        <li class="category-item border-bottom">
+            <label for="category-{{ category.category_code }}" class="category-label">{{ category.category_name }}</label>
+            <input id="category-{{ category.category_code }}" data-slider-id='category-slider-{{ category.category_code }}' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
+            <span class="preference-label">兴趣值:
+                <span id="category-label-{{ category.category_code }}" class="classification">0</span>
+            </span>
         </li>
-    </ul>
-{% endfor %}
+    {% endfor %}
+</ul>
 <div class="btn-container">
-    <div class="btn-danger submit-btn" onclick="preference_customize()">提交</div>
-    <div class="btn-danger skip-btn" onclick="preference_initialize()">跳过</div>
+    <div class="btn-info submit-btn" onclick="preference_customize()">提交</div>
+    <div class="btn-secondary skip-btn" onclick="preference_initialize()">跳过</div>
 </div>
 {% csrf_token %}
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/frame/bootstrap-slider.js"></script>
+<script type="text/javascript">
+{% for category in classification %}
+    new Slider("#category-{{ category.category_code }}").on("slide", function (event) {
+        $("#category-label-{{ category.category_code }}").text(event.value);
+    });
+{% endfor %}
+</script>
 <script type="text/javascript">
     function preference_customize() {
         let user_preference = [];
