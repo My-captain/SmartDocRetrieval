@@ -9,6 +9,7 @@
 <body>
 
 <button type="button" class="btn btn-primary preference-customize-btn" onclick="window.open('{% url 'User:user_preference' %}{{ user_id }}', 'self')">自定义偏好</button>
+<button type="button" class="btn btn-info preference-record-btn" onclick="window.open('{% url 'User:record_preference' user_id=user_id %}', 'self')">退出系统</button>
 
 <ul>
     {% for document in documents %}

@@ -4,8 +4,9 @@ from django.http import JsonResponse
 from django.db.models import Q
 
 import json
+from SmartDocRetrieval.settings import classification
 import apps.RetrievalCore.CommonTools as tool
-from RetrievalCore.models import Document, Session, UserProfile
+from RetrievalCore.models import Document, Session, UserProfile, DVectorRecord
 
 CLASS_NUM = 5
 SESSION_NUM = 300
@@ -313,3 +314,30 @@ class PreferenceAssess(View):
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
 
+
+class RecordPreference(View):
+    def get(self, request, user_id):
+        user = UserProfile.objects.filter(id=user_id)[0]
+        return render(request, "record_preference.html", {
+            "user": user,
+            "classification": classification
+        })
+
+    def post(self, request, user_id):
+        json_response = {
+            "success": False,
+            "msg": "",
+            "user_id": None,
+            "redirect": None
+        }
+        user = UserProfile.objects.filter(id=user_id)[0]
+        user_preference = request.POST.get("user_preference")
+        D_record = DVectorRecord.objects.create(user=user)
+        D_record.user_D_vector = user_preference
+
+        # 获取当前系统的D
+        """
+        D_record.sys_D_vector = xxx
+        """
+        D_record.save()
+        return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})

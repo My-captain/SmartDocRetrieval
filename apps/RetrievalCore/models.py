@@ -105,3 +105,33 @@ class Session(models.Model):
         """
         P = json.loads(self.P_vector)
         return P
+
+
+class DVectorRecord(models.Model):
+    user = models.ForeignKey(UserProfile, verbose_name="用户", on_delete=models.CASCADE, null=False, blank=False)
+    user_D_vector = models.TextField(verbose_name="用户D向量", null=True, blank=True)
+    sys_D_vector = models.TextField(verbose_name="系统计算的D向量", null=True, blank=True)
+    submit_time = models.DateTimeField(verbose_name="提交时间", null=True, blank=True)
+
+    class Meta:
+        verbose_name = "D向量比对表"
+        verbose_name_plural = verbose_name
+
+    def get_user_D_vector(self):
+        """
+        获取当前会话的D向量
+        :return: List<D_i>
+        """
+        D = json.loads(self.user_D_vector)
+        return D
+
+    def get_sys_P_vector(self):
+        """
+        获取当前会话的D向量
+        :return: List<D_i>
+        """
+        D = json.loads(self.sys_D_vector)
+        return D
+
+    def __str__(self):
+        return "{0}:{1}".format(self.user.username, self.submit_time.strftime("%Y%m%d%H%M%S"))
