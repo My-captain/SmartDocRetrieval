@@ -5,13 +5,21 @@
     <title>文献检索系统</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" href="/static/css/list.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/frame/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/css/frame/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="/static/css/frame/checkbox/build.less.css">
 </head>
 <body>
 
 <ul>
     {% for document in documents %}
     <li class="doc_list_card">
-        <input type="checkbox" class="custom-checkbox custom-control-input" id="{{ document.id }}" name="{{ document.id }}">
+        <div class="checkbox checkbox-primary">
+            <input id="checkbox1" class="styled" type="checkbox" checked="">
+            <label for="checkbox1">
+                与我相关
+            </label>
+        </div>
         <h5 class="doc_title" onclick="window.open('{% url 'RetrievalCore:document_detail' document_id=document.id session_id=session.id %}', 'self')">{{ document.title }}</h5>
         <ul class="author_list">
             {% for author in document.get_authors %}
