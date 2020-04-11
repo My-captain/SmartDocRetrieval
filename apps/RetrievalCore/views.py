@@ -5,7 +5,6 @@ from django.db.models import Q
 
 import json
 from datetime import datetime
-from SmartDocRetrieval.settings import classification
 import apps.RetrievalCore.CommonTools as tool
 from .models import Document, Session, UserProfile, DVectorRecord
 
@@ -13,7 +12,7 @@ CLASS_NUM = 5
 SESSION_NUM = 300
 ETA = 0.5
 CLASS_NAMES = ["recommender systems and personalization", "summarization and combination", "enterprise search and document structure", "sentiment analysis and combination", "question answering and document structure"]
-
+classification = [{"category_name": v, "category_code": k} for k, v in enumerate(CLASS_NAMES)]
 
 class DocumentListView(View):
     def get(self, request):
