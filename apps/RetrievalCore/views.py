@@ -7,6 +7,11 @@ import json
 import apps.RetrievalCore.CommonTools as tool
 from RetrievalCore.models import Document, Session, UserProfile
 
+CLASS_NUM = 5
+SESSION_NUM = 300
+ETA = 0.5
+CLASS_NAMES = ["recommender systems and personalization", "summarization and combination", "enterprise search and document structure", "sentiment analysis and combination", "question answering and document structure"]
+
 
 class DocumentListView(View):
     def get(self, request):
@@ -49,9 +54,6 @@ class DocumentListView(View):
         else:
             # 所有session都已完成
             user_sessions = Session.objects.filter(user=user)
-            # user_documents = Document.objects.filter(session__user__in=list(user_sessions))
-            # all_documents = Document.objects.all()
-            # new_documents = all_documents.difference(user_documents)[:20]
             new_documents = Document.objects.filter(~Q(session__documents__session__in=list(user_sessions)))[:20]
             new_session = Session.objects.create(user=user, D_vector=None, P_vector=None, precision=None)
             new_session.documents.set(list(new_documents))
@@ -82,7 +84,6 @@ class DocumentListView(View):
         }
         user_relevance = json.loads(request.POST.get("session_relevance"))
         user_id = request.POST.get("user_id")
-        print(user_relevance)
         if len(user_id) < 1:
             json_response["redirect"] = "/user/login/"
             return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
@@ -105,8 +106,8 @@ class DocumentListView(View):
                 for k, v in enumerate(user_d):
                     if v > 0:
                         v /= num_d[k]
-            new_d = json.dumps(tool.update_d_value(d, user_d, 300))
-            new_p = json.dumps(tool.update_p_value(user.get_P_vector(), new_d, 0.5))
+            new_d = json.dumps(tool.update_d_value(d, user_d, SESSION_NUM))
+            new_p = json.dumps(tool.update_p_value(user.get_P_vector(), new_d, ETA))
             user_session.D_vector = new_d
             user_session.P_vector = new_p
             user.D_vector = new_d
@@ -196,7 +197,6 @@ class UserLogin(View):
         if user.password == password:
             json_response["success"] = True
             json_response["user_id"] = user.id
-            print(sum(user.get_D_vector()))
             if sum(user.get_D_vector()) == 0:
                 json_response["redirect"] = "/user/preference_customize/{0}/".format(user.id)
         else:
@@ -222,8 +222,6 @@ class UserRegister(View):
         :param request:
         :return:
         """
-        # 从request.POST字典中取数据, 参数分别为 username、password
-        # 未实现
         json_response = {
             "success": False,
             "msg": "",
@@ -241,12 +239,11 @@ class UserRegister(View):
         new_user = UserProfile()
         new_user.username = username
         new_user.password = password
-        init_d, init_p = tool.initial_d_p_vector(5)
+        init_d, init_p = tool.initial_d_p_vector(CLASS_NUM)
         new_user.D_vector = json.dumps(init_d)
         new_user.P_vector = json.dumps(init_p)
         new_user.save()
         json_response["success"] = True
-        # json_response["redirect"] = "/user/login/"
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
 
 
@@ -260,22 +257,7 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        classification = [{
-            "category_name": "recommender systems and personalization",
-            "category_code": 0,
-        }, {
-            "category_name": "summarization and combination",
-            "category_code": 1,
-        }, {
-            "category_name": "enterprise search and document structure",
-            "category_code": 2,
-        }, {
-            "category_name": "sentiment analysis and combination",
-            "category_code": 3,
-        }, {
-            "category_name": "question answering and document structure",
-            "category_code": 4,
-        }]
+        classification = [{"category_name": v, "category_code": k} for k, v in enumerate(CLASS_NAMES)]
         return render(request, "preference_customize.html", {
             "user": user,
             "classification": classification
@@ -292,7 +274,6 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        print(user_preference)
         if user_preference is not None and sum(user_preference) > 0:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
@@ -328,7 +309,6 @@ class PreferenceAssess(View):
         session = Session.objects.filter(id=session_id).all()[0]
         user_preference = request.POST.get("user_preference")
         session.precision = tool.calc_precision(json.loads(user_preference))
-        print(session.precision)
         session.save()
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
