@@ -40,9 +40,9 @@
 <script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
 <script type="text/javascript">
     function exit_session() {
-        let user_preference = {};
+        let user_preference = [];
         document.querySelectorAll(".document-checkbox").forEach(box => {
-            user_preference[box.getAttribute("document-id")] = box.checked;
+            user_preference.push(box.checked);
         });
         let session_id = document.querySelectorAll(`ul`)[0].getAttribute("session-id");
         $.ajax({
