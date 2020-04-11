@@ -26,7 +26,7 @@ def initial_d_p_vector(type_num):
     :param type_num: 类别个数
     :return: D/P向量
     """
-    return [0 for i in range(len(type_num))], [1 / type_num for i in range(type_num)]
+    return [0 for i in range(type_num)], [1 / type_num for i in range(type_num)]
 
 
 def update_d_value(origin_d_vector, current_vector, session_num):
