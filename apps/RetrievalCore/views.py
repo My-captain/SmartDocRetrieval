@@ -42,7 +42,8 @@ class DocumentListView(View):
             documents = tool.sort_docs_by_dp(documents, user.get_D_vector(), user.get_P_vector())
             return render(request, "list.html", {
                 "documents": documents,
-                "session": user_session
+                "session": user_session,
+                "user_id": user_id
             })
             pass
         else:
@@ -58,7 +59,8 @@ class DocumentListView(View):
             new_documents = tool.sort_docs_by_dp(new_documents, user.get_D_vector(), user.get_P_vector())
             return render(request, "list.html", {
                 "documents": new_documents,
-                "session": new_session
+                "session": new_session,
+                "user_id": user_id
             })
 
     def post(self, request):
@@ -89,7 +91,8 @@ class DocumentListView(View):
         :return:
         """
         user_relevance = json.loads(request.POST.get("session_relevance"))
-        user_id = request.path.split("list")[1].replace("/", "")
+        user_id = request.POST.get("user_id")
+        print(user_relevance)
         if len(user_id) < 1:
             return render(request, "login.html")
         user_id = int(user_id)
@@ -103,12 +106,13 @@ class DocumentListView(View):
             d = user.get_D_vector()
             user_d = [0 for i in range(len(d))]
             num_d = [0 for i in range(len(d))]
-            for k, v in user_relevance:
-                user_d[v['classification']] += v['relevance']
-                num_d[v['classification']] += 1
-            for k, v in enumerate(user_d):
-                if v > 0:
-                    v /= num_d[k]
+            if user_relevance:
+                for k, v in user_relevance:
+                    user_d[v['classification']] += v['relevance']
+                    num_d[v['classification']] += 1
+                for k, v in enumerate(user_d):
+                    if v > 0:
+                        v /= num_d[k]
             new_d = json.dumps(tool.update_d_value(d, user_d, 300))
             new_p = json.dumps(tool.update_p_value(user.get_P_vector(), new_d, 0.5))
             user_session.D_vector = new_d
@@ -290,17 +294,14 @@ class UserPreference(View):
     def post(self, request):
         user_preference = request.POST.get("user_preference")
         user_preference = json.loads(user_preference)
-        user_id = request.path.split("preference_customize")[1].replace("/", "")
-        print(request.path)
+        user_id = request.POST.get("user_id")
         if len(user_id) < 1:
             return render(request, "login.html")
         user_id = int(user_id)
         user = UserProfile.objects.filter(id=user_id)
-        print(user)
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        print(user_preference)
         if user_preference is not None:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
