@@ -149,3 +149,20 @@ IDF = {
     "word1": 0.1
     # ...
 }
+
+classification = [{
+    "category_name": "recommender systems and personalization",
+    "category_code": 0,
+}, {
+    "category_name": "summarization and combination",
+    "category_code": 1,
+}, {
+    "category_name": "enterprise search and document structure",
+    "category_code": 2,
+}, {
+    "category_name": "sentiment analysis and combination",
+    "category_code": 3,
+}, {
+    "category_name": "question answering and document structure",
+    "category_code": 4,
+}]

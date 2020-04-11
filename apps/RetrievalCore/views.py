@@ -4,8 +4,9 @@ from django.http import JsonResponse
 from django.db.models import Q
 
 import json
+from SmartDocRetrieval.settings import classification
 import apps.RetrievalCore.CommonTools as tool
-from RetrievalCore.models import Document, Session, UserProfile
+from RetrievalCore.models import Document, Session, UserProfile, DVectorRecord
 
 
 class DocumentListView(View):
@@ -260,22 +261,6 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        classification = [{
-            "category_name": "recommender systems and personalization",
-            "category_code": 0,
-        }, {
-            "category_name": "summarization and combination",
-            "category_code": 1,
-        }, {
-            "category_name": "enterprise search and document structure",
-            "category_code": 2,
-        }, {
-            "category_name": "sentiment analysis and combination",
-            "category_code": 3,
-        }, {
-            "category_name": "question answering and document structure",
-            "category_code": 4,
-        }]
         return render(request, "preference_customize.html", {
             "user": user,
             "classification": classification
@@ -292,7 +277,6 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
-        print(user_preference)
         if user_preference is not None and sum(user_preference) > 0:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
@@ -333,3 +317,30 @@ class PreferenceAssess(View):
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
 
+
+class RecordPreference(View):
+    def get(self, request, user_id):
+        user = UserProfile.objects.filter(id=user_id)[0]
+        return render(request, "record_preference.html", {
+            "user": user,
+            "classification": classification
+        })
+
+    def post(self, request, user_id):
+        json_response = {
+            "success": False,
+            "msg": "",
+            "user_id": None,
+            "redirect": None
+        }
+        user = UserProfile.objects.filter(id=user_id)[0]
+        user_preference = request.POST.get("user_preference")
+        D_record = DVectorRecord.objects.create(user=user)
+        D_record.user_D_vector = user_preference
+
+        # 获取当前系统的D
+        """
+        D_record.sys_D_vector = xxx
+        """
+        D_record.save()
+        return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
