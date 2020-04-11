@@ -69,36 +69,28 @@ class DocumentListView(View):
            "1":{
               "classification":3,
               "relevance":0.8
-           },
-           "4":{
-              "classification":0,
-              "relevance":0.3
-           },
-           "8":{
-              "classification":0,
-              "relevance":0.8
-           },
-           "16":{
-              "classification":1,
-              "relevance":0.4
-           },
-           "20":{
-              "classification":0,
-              "relevance":0.4
-           }
+           },...
         }
         :param request:
         :return:
         """
+        json_response = {
+            "success": False,
+            "msg": "",
+            "user_id": None,
+            "redirect": None
+        }
         user_relevance = json.loads(request.POST.get("session_relevance"))
         user_id = request.POST.get("user_id")
         print(user_relevance)
         if len(user_id) < 1:
-            return render(request, "login.html")
+            json_response["redirect"] = "/user/login/"
+            return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
         user_id = int(user_id)
         user = UserProfile.objects.filter(id=user_id)
         if len(user) < 1:
-            return render(request, "login.html")
+            json_response["redirect"] = "/user/login/"
+            return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
         user = user[0]
         user_sessions = Session.objects.filter(user=user, D_vector=None, P_vector=None)
         if len(user_sessions) > 0:
@@ -107,7 +99,7 @@ class DocumentListView(View):
             user_d = [0 for i in range(len(d))]
             num_d = [0 for i in range(len(d))]
             if user_relevance:
-                for k, v in user_relevance:
+                for k, v in user_relevance.items():
                     user_d[v['classification']] += v['relevance']
                     num_d[v['classification']] += 1
                 for k, v in enumerate(user_d):
@@ -121,11 +113,9 @@ class DocumentListView(View):
             user.P_vector = new_p
             user_session.save()
             user.save()
-            session_documents = Document.objects.filter(session__documents__session__in=[user_session])
-            return render(request, "preference_assess.html", {
-                "documents": session_documents,
-                "session": user_session
-            })
+            # session_documents = Document.objects.filter(session__documents__session__in=[user_session])
+            json_response["redirect"] = "/user/assess/{0}/".format(user_session.id)
+            return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
 
 
 class DocumentDetailView(View):
@@ -307,3 +297,42 @@ class UserPreference(View):
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
             user.save()
         return JsonResponse({"success": True}, json_dumps_params={"ensure_ascii": False})
+
+
+class PreferenceAssess(View):
+    def get(self, request):
+        session_id = request.path.split("assess")[1].replace("/", "")
+        if session_id is None or len(session_id) < 1:
+            return render(request, "login.html")
+        session = Session.objects.filter(id=session_id)
+        if len(session) < 1:
+            return render(request, "login.html")
+        session = session[0]
+        session_documents = Document.objects.filter(session__documents__session__in=[session])
+        user = session.user
+        return render(request, "preference_assess.html", {
+            "session": session,
+            "documents": session_documents,
+            "user": user
+        })
+
+    def post(self, request):
+        json_response = {
+            "success": False,
+            "msg": "",
+            "user_id": None,
+            "redirect": None
+        }
+        session_id = request.POST.get("session_id")
+        session = Session.objects.filter(id=session_id)
+        user_preference = request.POST.get("user_preference")
+        user_preference = json.loads(user_preference)
+        """
+        计算Precision并存储
+        需beornut实现
+        user_preference结构
+        {'56': False, '53': False, '41': False, '52': False, '44': False, '43': False, '54': False, '55': False, '47': False, '57': False, '48': False, '51': False, '46': False, '49': False, '58': False, '42': False, '60': True, '50': False, '45': False, '59': True}
+        """
+        json_response["success"] = True
+        return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
+
