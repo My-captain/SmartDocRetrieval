@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button type="button" class="btn btn-primary preference-customize-btn" onclick="window.open('{% url 'User:user_preference' %}{{ user_id }}', 'self')">自定义偏好</button>
+
 <ul>
     {% for document in documents %}
     <li class="doc_list_card">
@@ -46,7 +48,7 @@
             },
             async: false,
             success: function (result) {
-                window.location
+                window.location = '{% url 'User:preference_assess' %}{{ session.id }}/';
             }
         });
     }

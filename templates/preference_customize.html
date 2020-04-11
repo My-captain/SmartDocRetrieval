@@ -44,7 +44,7 @@
         let user_preference = [];
         document.querySelectorAll(".classification").forEach(input_box => {
             try {
-                let prefer_value = parseFloat($(input_box).val());
+                let prefer_value = parseFloat($(input_box).text());
                 if (isNaN(prefer_value)) {
                     user_preference.push(0);
                 } else {
