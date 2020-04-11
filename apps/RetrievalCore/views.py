@@ -124,7 +124,7 @@ class DocumentListView(View):
             user.save()
             # 返回准确率评估页面，其中documents和session应从request或session中获取
             session_documents = Document.objects.filter(session__documents__session__in=[user_session])
-            return render(request, "preference.html", {
+            return render(request, "preference_assess.html", {
                 "documents": session_documents,
                 "session": user_session
             })
