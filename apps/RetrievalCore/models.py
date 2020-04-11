@@ -134,4 +134,4 @@ class DVectorRecord(models.Model):
         return D
 
     def __str__(self):
-        return "{0}:{1}".format(self.user.username, self.submit_time.strftime("%Y%m%d%H%M%S"))
+        return "{0}:{1}".format(self.user.username, self.submit_time.strftime("%Y/%m/%d:%H:%M:%S"))
