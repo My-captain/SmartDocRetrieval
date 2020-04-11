@@ -13,6 +13,7 @@ urlpatterns = [
     re_path(r'^detail/(?P<document_id>\d+)/(?P<session_id>\d+)/$', views.DocumentDetailView.as_view(), name="document_detail"),
     path('login/', views.UserLogin.as_view(), name="user_login"),
     path('register/', views.UserRegister.as_view(), name="user_register"),
+    re_path(r'^preference_customize/', views.UserPreference.as_view(), name="user_preference"),
 ]
 
 app_name = 'RetrievalCore'

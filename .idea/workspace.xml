@@ -1,67 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0fa6759-ebfe-4529-a4be-cc4a39909252" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SmartDocRetrieval.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartDocRetrieval.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/RetrievalCore/CommonTools.py" afterDir="false" />
-    </list>
+    <list default="true" id="fa5c046f-91f0-4b7d-9fef-4163cab16764" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SmartDocRetrieval$tf_idf_calculator.coverage" NAME="tf_idf_calculator Coverage Results" MODIFIED="1586357060528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/PreComputeModule" />
-  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1aJ4wqcnxtDudc8hhimNGZW8006" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1aNNZvV2S20fYlJtgi4NGr5glD9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SmartDocRetrieval/templates/register.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../SmartDocRetrieval/templates/register.html" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../SmartDocRetrieval-master - 副本/apps/RetrievalCore/views.py" />
   </component>
-  <component name="RunManager" selected="Django server.SmartDocRetrieval">
-    <configuration name="tf_idf_calculator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SmartDocRetrieval" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apps/PreComputeModule" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/apps/PreComputeModule/tf_idf_calculator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SmartDocRetrieval" type="Python.DjangoServer" factoryName="Django server">
-      <module name="SmartDocRetrieval" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\githubRepos\SmartDocRetrieval-master\static\css" />
+      <recent name="E:\githubRepos\SmartDocRetrieval-master\static\css\frame" />
+      <recent name="E:\githubRepos\SmartDocRetrieval-master\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SmartDocRetrieval-master" type="Python.DjangoServer" factoryName="Django server">
+      <module name="SmartDocRetrieval-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -70,12 +57,12 @@
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="60000" />
-      <option name="host" value="0.0.0.0" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -84,124 +71,108 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Django server.SmartDocRetrieval" />
-      <item itemvalue="Python.tf_idf_calculator" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.tf_idf_calculator" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d0fa6759-ebfe-4529-a4be-cc4a39909252" name="Default Changelist" comment="" />
-      <created>1586349938300</created>
+      <changelist id="fa5c046f-91f0-4b7d-9fef-4163cab16764" name="Default Changelist" comment="" />
+      <created>1586572151032</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586349938300</updated>
-      <workItem from="1586349942645" duration="7536000" />
-      <workItem from="1586440605785" duration="2998000" />
+      <updated>1586572151032</updated>
+      <workItem from="1586572155279" duration="8570000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441603563">
+    <state x="93" y="396" width="1149" height="596" key="#xdebugger.evaluate" timestamp="1586578257179">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586441603562" />
-    <state x="671" y="431" width="1182" height="596" key="#xdebugger.evaluate" timestamp="1586443419390">
+    <state x="93" y="396" width="1149" height="596" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1586578257179" />
+    <state width="1389" height="466" key="DebuggerActiveHint" timestamp="1586573529050">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="671" y="431" width="1182" height="596" key="#xdebugger.evaluate/0.0.1920.1050@0.0.1920.1050" timestamp="1586443419390" />
-    <state x="365" y="107" key="CommitChangelistDialog2" timestamp="1586443690575">
+    <state width="1389" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1586573529050" />
+    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog" timestamp="1586572482720">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="365" y="107" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586443690575" />
-    <state width="718" height="466" key="DebuggerActiveHint" timestamp="1586442536940">
+    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586572482720" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586572372061">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="718" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1586442536940" />
-    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog" timestamp="1586441861134">
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586572372061" />
+    <state width="914" height="385" key="GridCell.Tab.0.bottom" timestamp="1586578278373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="92" y="92" width="1736" height="866" maximized="true" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586441861134" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586441831047">
+    <state width="914" height="385" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
+    <state width="914" height="385" key="GridCell.Tab.0.center" timestamp="1586578278373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586441831047" />
-    <state width="1877" height="385" key="GridCell.Tab.0.bottom" timestamp="1586443308941">
+    <state width="914" height="385" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
+    <state width="914" height="385" key="GridCell.Tab.0.left" timestamp="1586578278373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
-    <state width="1877" height="385" key="GridCell.Tab.0.center" timestamp="1586443308941">
+    <state width="914" height="385" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
+    <state width="914" height="385" key="GridCell.Tab.0.right" timestamp="1586578278373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
-    <state width="1877" height="385" key="GridCell.Tab.0.left" timestamp="1586443308941">
+    <state width="914" height="385" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
+    <state width="914" height="574" key="GridCell.Tab.1.bottom" timestamp="1586578286486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
-    <state width="1877" height="385" key="GridCell.Tab.0.right" timestamp="1586443308941">
+    <state width="914" height="574" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
+    <state width="914" height="574" key="GridCell.Tab.1.center" timestamp="1586578286486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586443308941" />
-    <state width="1877" height="385" key="GridCell.Tab.1.bottom" timestamp="1586443317458">
+    <state width="914" height="574" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
+    <state width="914" height="574" key="GridCell.Tab.1.left" timestamp="1586578286486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
-    <state width="1877" height="385" key="GridCell.Tab.1.center" timestamp="1586443317458">
+    <state width="914" height="574" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
+    <state width="914" height="574" key="GridCell.Tab.1.right" timestamp="1586578286486">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
-    <state width="1877" height="385" key="GridCell.Tab.1.left" timestamp="1586443317458">
+    <state width="914" height="574" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1586572530340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
-    <state width="1877" height="385" key="GridCell.Tab.1.right" timestamp="1586443317458">
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586572530340" />
+    <state x="636" y="258" width="1208" height="733" key="find.popup" timestamp="1586578426507">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586443317458" />
-    <state x="461" y="167" key="SettingsEditor" timestamp="1586440624543">
+    <state x="636" y="258" width="1208" height="733" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586578426507" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1586578416385">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586440624543" />
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1586443618398">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1586443618398" />
-    <state width="1823" height="577" key="XDebugger.FullValuePopup" timestamp="1586442604057">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1823" height="577" key="XDebugger.FullValuePopup/0.0.1920.1050@0.0.1920.1050" timestamp="1586442604057" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586578416385" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
-          <line>95</line>
+          <line>211</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
+          <line>297</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

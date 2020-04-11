@@ -36,6 +36,7 @@ $("#form1").on("click", ".btn", function (e) {
     $.ajax({
         url: "{% url 'User:user_login' %}",
         type: "post",
+        async: false,
         data: {
             'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
             "username": $("#userName").val(),
@@ -43,7 +44,9 @@ $("#form1").on("click", ".btn", function (e) {
         },
         dataType: "json",
         success: function (result) {
-            if (result["success"]){
+            if (result["success"] && result["redirect"] != null){
+                window.location = `${result["redirect"]}`
+            }else if (result["success"]){
                 window.location = `/doc_browse/list/${result["user_id"]}`;
             } else {
                 alert(result["msg"]);
