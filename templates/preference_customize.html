@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义偏好</title>
+    <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/list.css">
+    <link rel="stylesheet" href="/static/css/preference_customize.css">
+</head>
+<body>
+
+{% for category in classification %}
+    <ul class="category-list">
+        <li class="category-item">
+            <label for="category-{{ category.category_code }}">{{ category.category_name }}</label>
+            <input id="category-{{ category.category_code }}" class="classification" type="text">
+        </li>
+    </ul>
+{% endfor %}
+<div class="btn-container">
+    <div class="btn-danger submit-btn" onclick="preference_customize()">提交</div>
+    <div class="btn-danger skip-btn" onclick="preference_initialize()">跳过</div>
+</div>
+{% csrf_token %}
+<script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
+<script type="text/javascript">
+    function preference_customize() {
+        let user_preference = [];
+        document.querySelectorAll(".classification").forEach(input_box => {
+            try{
+                let prefer_value = parseFloat($(input_box).val());
+                if (isNaN(prefer_value)){
+                    user_preference.push(0);
+                } else {
+                    user_preference.push(prefer_value);
+                }
+            }catch (e) {
+                user_preference.push(0);
+            }
+        });
+        $.ajax({
+            url: "{% url 'User:user_preference' %}",
+            type: "post",
+            dataType: "json",
+            data: {
+                'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
+                "user_id": {{user.id}},
+                "user_preference": JSON.stringify(user_preference)
+            },
+            async: false,
+        });
+    }
+    
+    function preference_initialize() {
+        $.ajax({
+            url: "{% url 'User:user_preference' %}",
+            type: "post",
+            dataType: "json",
+            data: {
+                'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
+                "user_id": {{user.id}},
+                "user_preference": JSON.stringify(null)
+            },
+            async: false,
+        });
+    }
+</script>
+</body>
+</html>

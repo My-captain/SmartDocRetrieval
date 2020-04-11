@@ -123,10 +123,11 @@ class DocumentListView(View):
             user_session.save()
             user.save()
             # 返回准确率评估页面，其中documents和session应从request或session中获取
-            # return render(request, "list.html", {
-            #     "documents": documents,
-            #     "session": session
-            # })
+            session_documents = Document.objects.filter(session__documents__session__in=[user_session])
+            return render(request, "preference.html", {
+                "documents": session_documents,
+                "session": user_session
+            })
 
 
 class DocumentDetailView(View):
@@ -190,7 +191,8 @@ class UserLogin(View):
         json_response = {
             "success": False,
             "msg": "",
-            "user_id": None
+            "user_id": None,
+            "redirect": None
         }
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -207,6 +209,8 @@ class UserLogin(View):
             # 登录成功，未实现
             json_response["success"] = True
             json_response["user_id"] = user.id
+            if user.D_vector is None or user.P_vector is None:
+                json_response["redirect"] = "/user/preference_customize/{0}/".format(user.id)
         else:
             json_response["msg"] = "密码错误"
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
@@ -254,3 +258,46 @@ class UserRegister(View):
         json_response["success"] = True
         # json_response["redirect"] = "/user/login/"
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
+
+
+class UserPreference(View):
+    def get(self, request):
+        user_id = request.path.split("preference_customize")[1].replace("/", "")
+        if len(user_id) < 1:
+            return render(request, "login.html")
+        user_id = int(user_id)
+        user = UserProfile.objects.filter(id=user_id)
+        if len(user) < 1:
+            # 用户未登录
+            return render(request, "login.html")
+        user = user[0]
+        # 未实现,此处需要返回类别，结构为
+        """
+        [{
+            "category_name": 类别名,
+            "category_code": 类别代码,
+        }, ...
+        ]
+        类别代码此处即为0 1 2 3...
+        """
+        classification = [{
+            "category_name": "情报学",
+            "category_code": 0,
+        }, {
+            "category_name": "ML",
+            "category_code": 1,
+        }]
+        return render(request, "preference_customize.html", {
+            "user": user,
+            "classification": classification
+        })
+
+    def post(self, request):
+        user_preference = request.POST.get("user_preference")
+        user_preference = json.loads(user_preference)
+        if user_preference is None:
+            # 未实现,用户在初始化兴趣值页面点击了跳过按钮，此处初始化用户D、P
+            pass
+        else:
+            # 未实现,初始化用户D、P值，user_preference结构为list<float>  例:[0.54, 0.12, ...]
+            pass
