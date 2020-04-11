@@ -7,18 +7,6 @@
 import random
 import math
 
-def get_vector_space_by_doc(doc, vocabulary):
-    """
-    计算文档实体的向量空间
-    :param doc: 传入的文档实体
-    :param vocabulary: 词库内容（dict<word:IDF>）
-    :return: 该文档的向量空间
-    """
-    vec = [0 for i in range(len(vocabulary))]
-    for voc, val in vocabulary:
-        vec[val['id']] = (doc['title'] + '. ' + doc['abstract']).lower().count(voc) * val['idf']
-    return vec
-
 
 def initial_d_p_vector(type_num):
     """

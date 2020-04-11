@@ -143,9 +143,3 @@ if __name__ == '__main__':
     #     for i in classes:
     #         file.write(str(len(i)) + '\t' + str(i) + '\n')
 
-    # class_names:
-    # recommender systems and personalization
-    # summarization and combination
-    # enterprise search and document structure
-    # sentiment analysis and combination
-    # question answering and document structure
