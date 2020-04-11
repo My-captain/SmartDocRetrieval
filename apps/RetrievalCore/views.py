@@ -292,6 +292,7 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
+        print(user_preference)
         if user_preference is not None and sum(user_preference) > 0:
             user.D_vector = json.dumps(user_preference)
             user.P_vector = json.dumps(tool.update_p_value(user.get_P_vector(), user_preference, 0.5))
@@ -308,7 +309,7 @@ class PreferenceAssess(View):
         if len(session) < 1:
             return render(request, "login.html")
         session = session[0]
-        session_documents = Document.objects.filter(session__documents__session__in=[session])
+        session_documents = session.documents.all()
         user = session.user
         return render(request, "preference_assess.html", {
             "session": session,
@@ -324,15 +325,11 @@ class PreferenceAssess(View):
             "redirect": None
         }
         session_id = request.POST.get("session_id")
-        session = Session.objects.filter(id=session_id)
+        session = Session.objects.filter(id=session_id).all()[0]
         user_preference = request.POST.get("user_preference")
-        user_preference = json.loads(user_preference)
-        """
-        计算Precision并存储
-        需beornut实现
-        user_preference结构
-        {'56': False, '53': False, '41': False, '52': False, '44': False, '43': False, '54': False, '55': False, '47': False, '57': False, '48': False, '51': False, '46': False, '49': False, '58': False, '42': False, '60': True, '50': False, '45': False, '59': True}
-        """
+        session.precision = tool.calc_precision(json.loads(user_preference))
+        print(session.precision)
+        session.save()
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
 

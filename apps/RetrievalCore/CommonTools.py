@@ -5,7 +5,7 @@
 # @File    : CommonTools.py
 # @Software: PyCharm
 import random
-
+import math
 
 def get_vector_space_by_doc(doc, vocabulary):
     """
@@ -72,3 +72,13 @@ def sort_docs_by_dp(doc_list, d_vector, p_vector):
     return top_doc_list + sorted(sort_doc_list, key=lambda x: d_vector[x.classification], reverse=True)
 
 
+def calc_precision(rel_list):
+    rels = []
+    s = 0
+    for k, v in enumerate(rel_list):
+        if v:
+            rels.append(k)
+            s += math.log10(k + 1)
+            s -= math.log10(len(rels))
+    m = math.factorial(len(rel_list)) / (math.factorial(len(rel_list) - len(rels)) * math.factorial(len(rels)))
+    return 1 - s / m
