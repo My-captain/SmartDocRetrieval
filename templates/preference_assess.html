@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="/static/css/list.css">
     <link rel="stylesheet" type="text/css" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/frame/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/frame/checkbox/build.less.css">
+{#    <link rel="stylesheet" type="text/css" href="/static/css/frame/checkbox/build.less.css">#}
 </head>
 <body>
 
-<ul>
+<ul session-id="{{ session.id }}">
     {% for document in documents %}
     <li class="doc_list_card">
-        <div class="checkbox checkbox-primary">
-            <input id="checkbox1" class="styled" type="checkbox" checked="">
-            <label for="checkbox1">
+        <div class=" checkbox checkbox-primary">
+            <input id="checkbox{{ document.id }}" class="custom-checkbox custom-control styled document-checkbox" type="checkbox" document-id="{{ document.id }}">
+            <label for="checkbox{{ document.id }}">
                 与我相关
             </label>
         </div>
@@ -32,27 +32,32 @@
     {% endfor %}
 </ul>
 {% csrf_token %}
-<div class="list-bottom" session-id="{{ session.id }}">
-    <div class="btn-danger exit-session-button" onclick="exit_session()">退出会话</div>
+<div class="list-bottom">
+    <div class="btn-secondary exit-session-button" onclick="exit_session()">提交偏好</div>
 </div>
 
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
 <script type="text/javascript">
     function exit_session() {
-        let user_relevance = localStorage.getItem("session_relevance");
-        user_relevance = JSON.parse(user_relevance);
-        let session_id = $(".list-bottom")[0].getAttribute("session-id");
+        let user_preference = {};
+        document.querySelectorAll(".document-checkbox").forEach(box => {
+            user_preference[box.getAttribute("document-id")] = box.checked;
+        });
+        let session_id = document.querySelectorAll(`ul`)[0].getAttribute("session-id");
         $.ajax({
-            url: "{% url 'RetrievalCore:document_list' %}",
+            url: "{% url 'User:preference_assess' %}",
             type: "post",
             dataType: "json",
             data: {
                 'csrfmiddlewaretoken': $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
-                "session_relevance": JSON.stringify(user_relevance),
+                "user_preference": JSON.stringify(user_preference),
                 "session_id": parseInt(session_id)
             },
             async: false,
+            success: function (result) {
+                window.location = '{% url 'RetrievalCore:document_list' %}{{ user.id }}';
+            }
         });
     }
 </script>
