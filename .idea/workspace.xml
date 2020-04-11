@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0fa6759-ebfe-4529-a4be-cc4a39909252" name="Default Changelist" comment="偏好设置页面">
-      <change beforePath="$PROJECT_DIR$/.idea/SmartDocRetrieval-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartDocRetrieval-master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/RetrievalCore/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/RetrievalCore/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/RetrievalCore/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d0fa6759-ebfe-4529-a4be-cc4a39909252" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="246">
-              <caret line="293" column="21" selection-start-line="293" selection-start-column="21" selection-end-line="293" selection-end-column="21" />
+              <caret line="293" column="56" selection-start-line="293" selection-start-column="56" selection-end-line="293" selection-end-column="56" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#2527#3079#1" />
@@ -323,7 +317,7 @@
       <workItem from="1586432650020" duration="3708000" />
       <workItem from="1586481661598" duration="1789000" />
       <workItem from="1586524945907" duration="5021000" />
-      <workItem from="1586587617548" duration="3609000" />
+      <workItem from="1586587617548" duration="3858000" />
     </task>
     <task id="LOCAL-00001" summary="所有文章类别以及类别名称更新">
       <created>1586358164846</created>
@@ -339,15 +333,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586529856861</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="偏好设置页面,d初始化与设置">
+      <created>1586591425188</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586591425188</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25942000" />
+    <option name="totallyTimeSpent" value="26191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -418,7 +418,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="所有文章类别以及类别名称更新" />
     <MESSAGE value="文章排序,dp更新，更新后返回准确率评估页面未完成，详见注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="文章排序,dp更新，更新后返回准确率评估页面未完成，详见注释" />
+    <MESSAGE value="偏好设置页面,d初始化与设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="偏好设置页面,d初始化与设置" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SmartDocRetrieval/urls.py">
@@ -522,7 +523,7 @@
     <entry file="file://$PROJECT_DIR$/apps/RetrievalCore/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
-          <caret line="293" column="21" selection-start-line="293" selection-start-column="21" selection-end-line="293" selection-end-column="21" />
+          <caret line="293" column="56" selection-start-line="293" selection-start-column="56" selection-end-line="293" selection-end-column="56" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#2527#3079#1" />

@@ -291,7 +291,7 @@ class UserPreference(View):
         user_preference = request.POST.get("user_preference")
         user_preference = json.loads(user_preference)
         user_id = request.path.split("preference_customize")[1].replace("/", "")
-        print(request.path.split("preference_customize"))
+        print(request.path)
         if len(user_id) < 1:
             return render(request, "login.html")
         user_id = int(user_id)
