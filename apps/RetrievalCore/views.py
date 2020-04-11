@@ -259,7 +259,12 @@ class UserPreference(View):
         if len(user) < 1:
             return render(request, "login.html")
         user = user[0]
+        D_vector = json.loads(user.D_vector)
         classification = [{"category_name": v, "category_code": k} for k, v in enumerate(CLASS_NAMES)]
+        for category in range(len(classification)):
+            D_value = D_vector[category]
+            category = classification[category]
+            category["interest_value"] = D_value
         return render(request, "preference_customize.html", {
             "user": user,
             "classification": classification

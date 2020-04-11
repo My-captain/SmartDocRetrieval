@@ -81,13 +81,13 @@
     vertical-align: middle;
 }
 .preference-customize-btn{
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 10px;
     box-shadow: #7291e8 0 0 6px 2px;
 }
 .preference-record-btn{
-    position: absolute;
+    position: fixed;
     top: 120px;
     left: 10px;
     box-shadow: #058498 0 0 6px 2px;
