@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ document.title }}</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/frame/bootstrap-slider.css">
     <link rel="stylesheet" href="/static/css/detail.css">
 </head>
 <body>
@@ -55,31 +56,30 @@
         </ol>
     </div>
 </main>
-<div class="detail-bottom">
-    <h1>反馈相关性:(0-1)</h1>
-    <input id="user_relevance" type="text">
-    {% csrf_token %}
-    <button type="button" onclick="submit_relevance()">反馈</button>
+<div class="detail-bottom-container">
+    <div class="detail-bottom">
+        <label for="user_relevance" class="relevance-label">反馈相关性:(0-1)</label>
+        <input id="user_relevance" data-slider-id='user-relevance-slider' type="text" data-slider-min="0"
+                       data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
+        <span class="preference-label">兴趣值:
+            <span id="user-relevance-label" class="classification" style="width: 48px;display: inline-block;">0</span>
+        </span>
+        {% csrf_token %}
+        <button class="btn btn-primary detail-relevance-btn" type="button" onclick="submit_relevance()">反馈</button>
+    </div>
 </div>
 
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/frame/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/frame/bootstrap-slider.js"></script>
+<script type="text/javascript">
+    new Slider("#user_relevance").on("slide", function (event) {
+            $("#user-relevance-label").text(event.value);
+        });
+</script>
 <script type="text/javascript">
     function submit_relevance() {
-        /*$.ajax({
-            url: "/doc_browse/detail/document_id/session_id/",
-            type: "post",
-            data: {
-                "csrfmiddlewaretoken": $("input[name='csrfmiddlewaretoken']")[0].getAttribute("value"),
-                "user_relevance": parseFloat($("#user_relevance").val()),
-            },
-            dataType: "json",
-            success: function (result) {
-                // 未实现
-            }
-        });
-        */
-        let user_relevance = parseFloat($('#user_relevance').val());
+        let user_relevance = parseFloat($('#user-relevance-label').text());
         let title = $('.detail-title')[0];
         let document_id = parseFloat(title.getAttribute("document-id"));
         let document_classification = parseInt(title.getAttribute("document-classification"));

@@ -112,5 +112,9 @@ body{
     text-align: left;
 }
 .detail-bottom{
-    margin-bottom: 20px;
+    width: 600px;
+    margin: 60px auto 300px auto;
+}
+.detail-relevance-btn{
+
 }
