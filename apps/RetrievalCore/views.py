@@ -336,10 +336,7 @@ class RecordPreference(View):
         D_record = DVectorRecord.objects.create(user=user)
         D_record.user_D_vector = user_preference
         D_record.sys_D_vector = user.D_vector
-        # 获取当前系统的D
-        """
-        D_record.sys_D_vector = xxx
-        """
         D_record.submit_time = datetime.now()
         D_record.save()
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
+
