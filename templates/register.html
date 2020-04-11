@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>注册-文献检索系统</title>
-    <link href="/static/css/frame/bootstrap.css" rel="stylesheet" />
+    <link href="/static/css/frame/bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
 <form id="form1" class="well" style="width: 30em; margin: auto; margin-top: 150px;">
@@ -21,12 +21,14 @@
               </span>
         <input type="password" id="password" class="form-control" placeholder="密码" aria-describedby="sizing-addon1"/>
     </div>
-    <button type="button" class="btn btn-success btn-block" onclick="register()">注册</button>
-    <a class="btn btn-sm btn-white btn-block" style="text-align: right;" href="{% url 'User:user_login' %}">
-        <h6>已有账户？前往登录</h6>
-    </a>
+    <button type="button" class="btn btn-success btn-block" onclick="register()" style="margin-top: 15px">注册</button>
     {% csrf_token %}
 </form>
+<div>
+    <a class="btn btn-sm btn-white btn-block" style="text-align: center;" href="{% url 'User:user_login' %}">
+    <h6>已有账户？前往登录</h6>
+</a>
+</div>
 <script src="/static/js/frame/jquery.min.js"></script>
 <script src="/static/js/frame/bootstrap.js"></script>
 <script>
