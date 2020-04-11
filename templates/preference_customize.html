@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>自定义偏好</title>
+    <title>Preference-Customize</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" href="/static/css/frame/bootstrap-slider.css">
     <link rel="stylesheet" href="/static/css/list.css">
     <link rel="stylesheet" href="/static/css/preference_customize.css">
 </head>
 <body>
+
+<button class="btn btn-danger back-btn" onclick="window.close()">Back</button>
 
 <ul class="category-list">
     {% for category in classification %}
@@ -17,16 +19,16 @@
                    class="category-label">{{ category.category_name }}</label>
             <input id="category-{{ category.category_code }}"
                    data-slider-id='category-slider-{{ category.category_code }}' type="text" data-slider-min="0"
-                   data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
-            <span class="preference-label">兴趣值:
-                <span id="category-label-{{ category.category_code }}" class="classification">0</span>
+                   data-slider-max="1" data-slider-step="0.01" data-slider-value="{{ category.interest_value }}"/>
+            <span class="preference-label">Interest:
+                <span id="category-label-{{ category.category_code }}" class="classification">{{ category.interest_value }}</span>
             </span>
         </li>
     {% endfor %}
 </ul>
 <div class="btn-container">
-    <div class="btn-info submit-btn" onclick="preference_customize()">提交</div>
-    <div class="btn-secondary skip-btn" onclick="preference_initialize()">跳过</div>
+    <div class="btn-info submit-btn" onclick="preference_customize()">Submit</div>
+    <div class="btn-secondary skip-btn" onclick="preference_initialize()">Skip</div>
 </div>
 {% csrf_token %}
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>

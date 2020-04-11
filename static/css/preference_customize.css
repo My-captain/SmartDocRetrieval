@@ -51,3 +51,9 @@
 .slider-selection{
     background: #0658bd;
 }
+.back-btn{
+    position: fixed;
+    top: 60px;
+    left: 60px;
+    border-radius: 4px;
+}

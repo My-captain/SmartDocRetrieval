@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>提交偏好</title>
+    <title>Preference-Submit</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" href="/static/css/frame/bootstrap-slider.css">
     <link rel="stylesheet" href="/static/css/list.css">
@@ -18,14 +18,14 @@
             <input id="category-{{ category.category_code }}"
                    data-slider-id='category-slider-{{ category.category_code }}' type="text" data-slider-min="0"
                    data-slider-max="1" data-slider-step="0.01" data-slider-value="0"/>
-            <span class="preference-label">兴趣值:
+            <span class="preference-label">Interest:
                 <span id="category-label-{{ category.category_code }}" class="classification">0</span>
             </span>
         </li>
     {% endfor %}
 </ul>
 <div class="btn-container">
-    <div class="btn-info submit-btn" onclick="submit_preference()">提交</div>
+    <div class="btn-info submit-btn" onclick="submit_preference()">Submit</div>
 </div>
 {% csrf_token %}
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>

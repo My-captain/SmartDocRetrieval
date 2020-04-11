@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录-文献检索系统</title>
+    <title>Login-SmartDocRetrieval</title>
     <link href="/static/css/frame/bootstrap.css" rel="stylesheet"/>
 </head>
 <body>
 <form id="form1" class="well" style="width: 30em; margin: auto; margin-top: 150px;">
-    <h3>用户登录</h3>
+    <h3>User Login</h3>
     <div class=" input-group input-group-md">
               <span class="input-group-addon" id="sizing-addon1">
                   <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
               </span>
-        <input id="userName" type="text" class="form-control" placeholder="用户名" aria-describedby="sizing-addon1"/>
+        <input id="userName" type="text" class="form-control" placeholder="Account" aria-describedby="sizing-addon1"/>
     </div>
     <br/>
     <div class="input-group input-group-md">
               <span class="input-group-addon" id="sizing-addon1">
                   <i class="glyphicon glyphicon-lock"></i>
               </span>
-        <input type="password" id="password" class="form-control" placeholder="密码" aria-describedby="sizing-addon1"/>
+        <input type="password" id="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon1"/>
     </div>
-    <button type="button" class="btn btn-success btn-block" style="margin-top: 15px">登录</button>
+    <button type="button" class="btn btn-success btn-block" style="margin-top: 15px">Login</button>
     {% csrf_token %}
 </form>
 <div>
     <a class="btn btn-sm btn-white btn-block" style="text-align: center;" href="{% url 'User:user_register' %}">
-        <h6>还没有账户？前往注册</h6>
+        <h6>Not have an account?Go Register</h6>
     </a>
 </div>
 <script src="/static/js/frame/jquery.min.js"></script>

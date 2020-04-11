@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文献检索系统</title>
+    <title>SmartDocRetrieval</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" href="/static/css/list.css">
 </head>
 <body>
 
-<button type="button" class="btn btn-primary preference-customize-btn" onclick="window.open('{% url 'User:user_preference' %}{{ user_id }}', 'self')">自定义偏好</button>
-<button type="button" class="btn btn-info preference-record-btn" onclick="window.open('{% url 'User:record_preference' user_id=user_id %}', 'self')">退出系统</button>
+<button type="button" class="btn btn-primary preference-customize-btn" onclick="window.open('{% url 'User:user_preference' %}{{ user_id }}', 'self')">Preference Custom</button>
+<button type="button" class="btn btn-info preference-record-btn" onclick="window.open('{% url 'User:record_preference' user_id=user_id %}', 'self')">Exit System</button>
 
 <ul>
     {% for document in documents %}
@@ -27,7 +27,7 @@
 </ul>
 {% csrf_token %}
 <div class="list-bottom" session-id="{{ session.id }}">
-    <div class="btn-danger exit-session-button" onclick="exit_session()">退出会话</div>
+    <div class="btn-danger exit-session-button" onclick="exit_session()">Exit Session</div>
 </div>
 
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>

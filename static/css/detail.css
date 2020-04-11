@@ -118,3 +118,9 @@ body{
 .detail-relevance-btn{
 
 }
+.back-btn{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border-radius: 4px;
+}

@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文献检索系统</title>
+    <title>SmartDocRetrieval</title>
     <link rel="stylesheet" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" href="/static/css/list.css">
     <link rel="stylesheet" type="text/css" href="/static/css/frame/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/frame/font-awesome.css">
-{#    <link rel="stylesheet" type="text/css" href="/static/css/frame/checkbox/build.less.css">#}
 </head>
 <body>
 
@@ -17,7 +16,7 @@
         <div class=" checkbox checkbox-primary">
             <input id="checkbox{{ document.id }}" class="custom-checkbox custom-control styled document-checkbox" type="checkbox" document-id="{{ document.id }}">
             <label for="checkbox{{ document.id }}">
-                与我相关
+                Relevant Result
             </label>
         </div>
         <h5 class="doc_title" onclick="window.open('{% url 'RetrievalCore:document_detail' document_id=document.id session_id=session.id %}', 'self')">{{ document.title }}</h5>
@@ -33,7 +32,7 @@
 </ul>
 {% csrf_token %}
 <div class="list-bottom">
-    <div class="btn-secondary exit-session-button" onclick="exit_session()">提交偏好</div>
+    <div class="btn-secondary exit-session-button" onclick="exit_session()">Submit Preference</div>
 </div>
 
 <script type="text/javascript" src="/static/js/frame/jquery.min.js"></script>
