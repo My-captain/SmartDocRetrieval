@@ -32,7 +32,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js/frame" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -41,8 +41,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\githubRepos\SmartDocRetrieval-master\static\css" />
+      <recent name="E:\githubRepos\SmartDocRetrieval-master\static\js\frame" />
       <recent name="E:\githubRepos\SmartDocRetrieval-master\static\css\frame" />
+      <recent name="E:\githubRepos\SmartDocRetrieval-master\static\css" />
       <recent name="E:\githubRepos\SmartDocRetrieval-master\templates" />
     </key>
   </component>
@@ -82,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586572151032</updated>
-      <workItem from="1586572155279" duration="8570000" />
+      <workItem from="1586572155279" duration="13707000" />
     </task>
     <servers />
   </component>
@@ -106,38 +107,38 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586572372061" />
-    <state width="914" height="385" key="GridCell.Tab.0.bottom" timestamp="1586578278373">
+    <state width="1877" height="113" key="GridCell.Tab.0.bottom" timestamp="1586587243325">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="385" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
-    <state width="914" height="385" key="GridCell.Tab.0.center" timestamp="1586578278373">
+    <state width="1877" height="113" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586587243325" />
+    <state width="1877" height="113" key="GridCell.Tab.0.center" timestamp="1586587243325">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="385" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
-    <state width="914" height="385" key="GridCell.Tab.0.left" timestamp="1586578278373">
+    <state width="1877" height="113" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586587243325" />
+    <state width="1877" height="113" key="GridCell.Tab.0.left" timestamp="1586587243325">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="385" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
-    <state width="914" height="385" key="GridCell.Tab.0.right" timestamp="1586578278373">
+    <state width="1877" height="113" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586587243325" />
+    <state width="1877" height="113" key="GridCell.Tab.0.right" timestamp="1586587243325">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="385" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586578278373" />
-    <state width="914" height="574" key="GridCell.Tab.1.bottom" timestamp="1586578286486">
+    <state width="1877" height="113" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586587243325" />
+    <state width="1877" height="113" key="GridCell.Tab.1.bottom" timestamp="1586587264933">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="574" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
-    <state width="914" height="574" key="GridCell.Tab.1.center" timestamp="1586578286486">
+    <state width="1877" height="113" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586587264933" />
+    <state width="1877" height="113" key="GridCell.Tab.1.center" timestamp="1586587264933">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="574" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
-    <state width="914" height="574" key="GridCell.Tab.1.left" timestamp="1586578286486">
+    <state width="1877" height="113" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586587264933" />
+    <state width="1877" height="113" key="GridCell.Tab.1.left" timestamp="1586587264932">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="574" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
-    <state width="914" height="574" key="GridCell.Tab.1.right" timestamp="1586578286486">
+    <state width="1877" height="113" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586587264932" />
+    <state width="1877" height="113" key="GridCell.Tab.1.right" timestamp="1586587264933">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="574" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586578286486" />
+    <state width="1877" height="113" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586587264933" />
     <state x="461" y="167" key="SettingsEditor" timestamp="1586572530340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -154,11 +155,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
-          <line>211</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/RetrievalCore/views.py</url>
           <line>297</line>
