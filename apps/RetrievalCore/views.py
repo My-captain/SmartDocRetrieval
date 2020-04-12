@@ -5,7 +5,6 @@ from django.db.models import Q
 
 import json
 from datetime import datetime
-from SmartDocRetrieval.settings import classification
 import apps.RetrievalCore.CommonTools as tool
 from .models import Document, Session, UserProfile, DVectorRecord
 
@@ -13,7 +12,7 @@ CLASS_NUM = 5
 SESSION_NUM = 300
 ETA = 0.5
 CLASS_NAMES = ["recommender systems and personalization", "summarization and combination", "enterprise search and document structure", "sentiment analysis and combination", "question answering and document structure"]
-
+classification = [{"category_name": v, "category_code": k} for k, v in enumerate(CLASS_NAMES)]
 
 class DocumentListView(View):
     def get(self, request):
@@ -46,7 +45,9 @@ class DocumentListView(View):
             # 有未完成的session
             user_session = user_sessions[0]
             documents = user_session.documents.all()
-            documents = tool.sort_docs_by_dp(documents, user.get_D_vector(), user.get_P_vector())
+            new = tool.sort_docs_by_dp(documents, user.get_D_vector(), user.get_P_vector())
+            for i in range(len(new)):
+                print(new[i].id, documents[i].id)
             return render(request, "list.html", {
                 "documents": documents,
                 "session": user_session,
@@ -60,9 +61,11 @@ class DocumentListView(View):
             new_session = Session.objects.create(user=user, D_vector=None, P_vector=None, precision=None)
             new_session.documents.set(list(new_documents))
             new_session.save()
-            new_documents = tool.sort_docs_by_dp(new_documents, user.get_D_vector(), user.get_P_vector())
+            new = tool.sort_docs_by_dp(new_documents, user.get_D_vector(), user.get_P_vector())
+            for i in range(len(new)):
+                print(new[i].id, new_documents[i].id)
             return render(request, "list.html", {
-                "documents": new_documents,
+                "documents": new,
                 "session": new_session,
                 "user_id": user_id
             })
@@ -299,9 +302,10 @@ class PreferenceAssess(View):
         session = session[0]
         session_documents = session.documents.all()
         user = session.user
+        new = tool.sort_docs_by_dp(session_documents, user.get_D_vector(), user.get_P_vector())
         return render(request, "preference_assess.html", {
             "session": session,
-            "documents": session_documents,
+            "documents": new,
             "user": user
         })
 
@@ -315,7 +319,7 @@ class PreferenceAssess(View):
         session_id = request.POST.get("session_id")
         session = Session.objects.filter(id=session_id).all()[0]
         user_preference = request.POST.get("user_preference")
-        session.precision = tool.calc_precision(json.loads(user_preference))
+        session.precision, session.default_precision = tool.calc_precision(json.loads(user_preference), session.documents.all())
         session.save()
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
