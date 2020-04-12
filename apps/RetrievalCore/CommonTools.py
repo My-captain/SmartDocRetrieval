@@ -65,13 +65,17 @@ def calc_precision(rel_list, origin_list):
     s = 0
     t = 0
     for k, v in enumerate(rel_list):
-        if v['user_relevent']:
+        print(v['document_id'], origin_list[k].id)
+        if v['user_relevant']:
             rels.append(k)
             s += math.log10(k + 1)
             s -= math.log10(len(rels))
             for i, j in enumerate(origin_list):
-                if v['document_id'] == j.id:
+                if int(v['document_id']) == j.id:
                     t += math.log10(i + 1)
                     t -= math.log10(len(rels))
+                    break
     m = math.log(math.factorial(len(rel_list)) / (math.factorial(len(rel_list) - len(rels)) * math.factorial(len(rels))))
+    if m == 0:
+        return 1, 1
     return 1 - s / m, 1 - t / m
