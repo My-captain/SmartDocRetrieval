@@ -84,7 +84,8 @@ class Session(models.Model):
     documents = models.ManyToManyField(Document, verbose_name="会话文档")
     D_vector = models.TextField(verbose_name="D向量", null=True, blank=True)
     P_vector = models.TextField(verbose_name="P向量", null=True, blank=True)
-    precision = models.FloatField(verbose_name="此此session的准确率", null=True, blank=True)
+    precision = models.FloatField(verbose_name="此session的准确率", null=True, blank=True)
+    default_precision = models.FloatField(verbose_name="默认文档流顺序的准确率", null=True, blank=True)
 
     class Meta:
         verbose_name = "会话"
