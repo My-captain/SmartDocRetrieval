@@ -60,13 +60,18 @@ def sort_docs_by_dp(doc_list, d_vector, p_vector):
     return top_doc_list + sorted(sort_doc_list, key=lambda x: d_vector[x.classification], reverse=True)
 
 
-def calc_precision(rel_list):
+def calc_precision(rel_list, origin_list):
     rels = []
     s = 0
+    t = 0
     for k, v in enumerate(rel_list):
-        if v:
+        if v['user_relevent']:
             rels.append(k)
             s += math.log10(k + 1)
             s -= math.log10(len(rels))
-    m = math.factorial(len(rel_list)) / (math.factorial(len(rel_list) - len(rels)) * math.factorial(len(rels)))
-    return 1 - s / m
+            for i, j in enumerate(origin_list):
+                if v['document_id'] == j.id:
+                    t += math.log10(i + 1)
+                    t -= math.log10(len(rels))
+    m = math.log(math.factorial(len(rel_list)) / (math.factorial(len(rel_list) - len(rels)) * math.factorial(len(rels))))
+    return 1 - s / m, 1 - t / m

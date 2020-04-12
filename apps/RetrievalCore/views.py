@@ -314,7 +314,7 @@ class PreferenceAssess(View):
         session_id = request.POST.get("session_id")
         session = Session.objects.filter(id=session_id).all()[0]
         user_preference = request.POST.get("user_preference")
-        session.precision = tool.calc_precision(json.loads(user_preference))
+        session.precision, session.default_precision = tool.calc_precision(json.loads(user_preference), session.documents.all())
         session.save()
         json_response["success"] = True
         return JsonResponse(json_response, json_dumps_params={"ensure_ascii": False})
