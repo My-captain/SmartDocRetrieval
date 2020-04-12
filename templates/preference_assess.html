@@ -41,7 +41,10 @@
     function exit_session() {
         let user_preference = [];
         document.querySelectorAll(".document-checkbox").forEach(box => {
-            user_preference.push(box.checked);
+            user_preference.push({
+                "document_id": box.getAttribute("document-id"),
+                "user_relevant": box.checked
+            });
         });
         let session_id = document.querySelectorAll(`ul`)[0].getAttribute("session-id");
         $.ajax({
